@@ -1,17 +1,24 @@
 <script lang="ts">
-	import Card from '../components/Card.svelte';
-	import Welcome from '../components/Welcome.svelte';
+	import Faqs from '../components/faqs.svelte';
+	import Floorplan from '../components/floorplan.svelte';
+	import Footer from '../components/footer.svelte';
+	import Header from '../components/header.svelte';
+	import Intro from '../components/intro.svelte';
+	import List from '../components/list.svelte';
+	import Location from '../components/location.svelte';
+	import Nav from '../components/nav.svelte';
 	import type { PageData } from './$types';
 
-	export let data: PageData;
+	export let data;
 </script>
 
 <section>
-	{#if data.posts.length}
-		{#each data.posts as post}
-			<Card {post} />
-		{/each}
-	{:else}
-		<Welcome />
-	{/if}
+	<Header />
+	<Intro />
+	<Floorplan />
+	<Faqs />
+	<Location />
+	<List />
+	<Footer />
+	<Nav />
 </section>
