@@ -17,7 +17,6 @@
 		ncmPerc = Math.round((scrollY / ncm) * 100);
 		buildingPerc = Math.round(((scrollY - ncm) / building) * 100);
 		resourcesPerc = Math.round(((scrollY - ncm - building) / resources) * 100);
-		console.log(resourcesPerc);
 	};
 
 	onMount(() => {
@@ -45,7 +44,7 @@
 	<div bind:clientHeight={signup}>
 		<Footer />
 	</div>
-	<Nav />
+	<Nav {ncmPerc} />
 </section>
 
 <svelte:window bind:scrollY />

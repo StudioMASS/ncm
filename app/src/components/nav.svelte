@@ -1,8 +1,17 @@
+<script>
+	import NavLink from './atoms/navLink.svelte';
+
+	export let ncmPerc;
+	export let buildingPerc;
+	export let resourcesPerc;
+	export let signupPerc;
+</script>
+
 <section>
-	<a class="tiny" href="#">National Communication Museum</a>
-	<a class="tiny" href="#building">Building</a>
-	<a class="tiny" href="#resources">Resources</a>
-	<a class="tiny" href="#signup">Signup</a>
+	<NavLink text="National Communication Museum" url="#" perc={ncmPerc} />
+	<NavLink text="Building" url="#building" perc={buildingPerc} />
+	<NavLink text="Resources" url="#resources" perc={resourcesPerc} />
+	<NavLink text="Signup" url="#signup" perc={signupPerc} />
 </section>
 
 <style>
@@ -17,10 +26,5 @@
 		display: flex;
 		box-sizing: border-box;
 		align-items: center;
-		padding: 0px 9px;
-	}
-	a {
-		padding: 12px 10px;
-		width: 100%;
 	}
 </style>
