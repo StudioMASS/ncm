@@ -44,7 +44,7 @@
 	<div bind:clientHeight={signup}>
 		<Footer />
 	</div>
-	<Nav {ncmPerc} />
+	<Nav {ncmPerc} {buildingPerc} {resourcesPerc} {signupPerc} />
 </section>
 
 <svelte:window bind:scrollY />

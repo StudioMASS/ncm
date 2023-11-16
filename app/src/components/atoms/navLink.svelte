@@ -1,12 +1,18 @@
 <script>
 	export let text;
 	export let url;
-	export let perc;
+	export let perc = 0;
+
+	let width;
+
+	$: {
+		width = Math.min(Math.max(parseInt(perc), 0), 101);
+	}
 </script>
 
-<a href={url}>
+<a href={url} class:active={width > 0 && width < 101}>
 	<p class="tiny">{text}</p>
-	<div class="bg" style="width: {perc}%" />
+	<div class="bg" style={width > 100 ? 'width: 0%' : `width: ${width}%`} />
 </a>
 
 <style>
@@ -16,6 +22,10 @@
 		position: relative;
 		box-sizing: border-box;
 		overflow: hidden;
+		color: var(--black-50);
+	}
+	.active {
+		color: var(--black-100);
 	}
 	a:first-child {
 		padding-left: 21px;
