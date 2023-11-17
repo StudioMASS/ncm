@@ -1,6 +1,11 @@
+<script>
+	import Gradient from "./atoms/gradient.svelte";
+
+</script>
 <a href="#intro">
 	<h1 class="large">National Communication Museum</h1>
 	<h1 class="large">Opening Winter 2024</h1>
+	<Gradient />
 </a>
 
 <style>
@@ -16,5 +21,9 @@
 		position: sticky;
 		top: 0px;
 		z-index: 0;
+	}
+	h1{
+		z-index: 1;
+		position: relative;
 	}
 </style>
