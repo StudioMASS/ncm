@@ -1,15 +1,17 @@
 <script>
 	import Gradient from "./atoms/gradient.svelte";
+	import Orb from "./atoms/orb.svelte";
 
 </script>
-<a href="#intro">
+<section href="#intro">
 	<h1 class="large">National Communication Museum</h1>
 	<h1 class="large">Opening Winter 2024</h1>
+	<!-- <Orb /> -->
 	<Gradient />
-</a>
+</section>
 
 <style>
-	a {
+	section {
 		height: calc(100vh - var(--nav-height));
 		display: flex;
 		justify-content: center;

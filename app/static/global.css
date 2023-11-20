@@ -12,6 +12,7 @@
 	--black-05: #F3F3F4;
 
 	--border: rgba(23, 24, 26, 0.1);
+	--aspect-ratio: calc(100vh - (3 * var(--padding)));
 
 	--nav-height: 44px;
 }
@@ -57,7 +58,7 @@ body {
 }
 
 .small {
-	font-size: 17;
+	font-size: 17px;
 }
 
 .tiny {

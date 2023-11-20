@@ -1,10 +1,14 @@
+<script>
+	import FloorplanEmbed from "./atoms/floorplanEmbed.svelte";
+
+</script>
 <section id="building">
 	<div class="container">
 		<div class="header">
-			<h2>Building</h2>
+			<h2 class="small">Building</h2>
 			<h3>The NCM is located in two floors of a refurbished telephone exchange</h3>
 		</div>
-		<div class="placeholder" />
+		<FloorplanEmbed />
 	</div>
 </section>
 

@@ -28,5 +28,8 @@
 	.container {
 		position: sticky;
 		top: var(--padding);
+		display: flex;
+		flex-direction: column;
+		align-items: start;
 	}
 </style>
