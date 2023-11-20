@@ -6,7 +6,7 @@
 	<div class="container">
 		<div class="header">
 			<h2 class="small">Building</h2>
-			<h3>The NCM is located in two floors of a refurbished telephone exchange</h3>
+			<h3 class="small">The NCM is located in two floors of a refurbished telephone exchange</h3>
 		</div>
 		<FloorplanEmbed />
 	</div>
@@ -35,5 +35,19 @@
 	.placeholder {
 		padding-top: 60%;
 		background: var(--black-05);
+	}
+	
+
+	@media only screen and (max-width: 767px) {
+		.header {
+			flex-direction: column;
+			margin-bottom: var(--padding);
+			gap: 4px;
+		}
+
+		.header * {
+		width: 100%;
+		margin-bottom: 0px;
+	}
 	}
 </style>

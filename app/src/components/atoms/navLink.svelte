@@ -23,6 +23,9 @@
 		box-sizing: border-box;
 		overflow: hidden;
 		color: var(--black-50);
+		height: 100%;
+		display: flex;
+		align-items: center;
 	}
 	.active {
 		color: var(--black-100);

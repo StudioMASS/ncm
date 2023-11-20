@@ -1,7 +1,6 @@
 <script>
 	import Filters from './atoms/filters.svelte';
 	import Li from './atoms/li.svelte';
-	import Question from './atoms/question.svelte';
 </script>
 
 <section id="resources">
@@ -57,5 +56,13 @@
 	.lhs {
 		position: sticky;
 		top: var(--padding);
+	}
+	p {
+		margin-bottom: 64px;
+	}
+
+	.body {
+		border-top: 0.5px solid var(--border);
+		margin-top: 16px;
 	}
 </style>

@@ -10,13 +10,20 @@
 	import Location from '../components/location.svelte';
 	import Nav from '../components/nav.svelte';
 
-	let scrollY, ncm, building, resources, signup;
+	let scrollY, header, ncm, building, resources, signup;
 	let ncmPerc, buildingPerc, resourcesPerc, signupPerc;
 
+	ncmPerc = 1;
+
 	const scrollListener = () => {
-		ncmPerc = Math.round((scrollY / ncm) * 100);
-		buildingPerc = Math.round(((scrollY - ncm) / building) * 100);
-		resourcesPerc = Math.round(((scrollY - ncm - building) / resources) * 100);
+		let aboveSections = 0;
+		ncmPerc = Math.round(((scrollY - aboveSections) / ncm) * 100) + 1;
+		aboveSections = aboveSections + ncm;
+		buildingPerc = Math.round(((scrollY - aboveSections) / building) * 100) + 1;
+		aboveSections = aboveSections + building;
+		resourcesPerc = Math.round(((scrollY - aboveSections) / (resources - (signup / 2))) * 100) + 1;
+		aboveSections = aboveSections + (resources - (signup / 2));
+		signupPerc = Math.round(((scrollY - aboveSections) / (signup/2)) * 100);
 	};
 
 	onMount(() => {
@@ -30,7 +37,7 @@
 
 <section>
 	<div bind:clientHeight={ncm}>
-		<Header />
+		<div bind:clientHeight={header}><Header /></div>
 		<Intro />
 	</div>
 	<div bind:clientHeight={building}>

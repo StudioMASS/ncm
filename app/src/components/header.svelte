@@ -23,6 +23,7 @@
 		position: sticky;
 		top: 0px;
 		z-index: 0;
+		overflow: hidden;
 	}
 	h1{
 		z-index: 1;

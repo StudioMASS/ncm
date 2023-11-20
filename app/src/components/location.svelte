@@ -29,7 +29,13 @@
 		padding-top: var(--padding);
 	}
 	.placeholder {
-		padding-top: 60%;
+		padding-top: var(--aspect-ratio);
 		background: var(--black-05);
+	}
+
+	@media only screen and (max-width: 767px) {
+		.header {
+			flex-direction: column;
+		}
 	}
 </style>
