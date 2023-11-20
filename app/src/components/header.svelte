@@ -1,13 +1,17 @@
 <script>
-	import Gradient from "./atoms/gradient.svelte";
-	import Orb from "./atoms/orb.svelte";
-
+	import Gradient from './atoms/gradient.svelte';
+	import Orb from './atoms/orb.svelte';
+	import Particles from './atoms/particles.svelte';
+	import Plane from './atoms/plane.svelte';
 </script>
+
 <section href="#intro">
 	<h1 class="large">National Communication Museum</h1>
 	<h1 class="large">Opening Winter 2024</h1>
-	<!-- <Orb /> -->
-	<Gradient />
+	<Orb />
+	<!-- <Plane /> -->
+	<!-- <Gradient /> -->
+	<!-- <Particles /> -->
 </section>
 
 <style>
@@ -25,7 +29,7 @@
 		z-index: 0;
 		overflow: hidden;
 	}
-	h1{
+	h1 {
 		z-index: 1;
 		position: relative;
 	}
