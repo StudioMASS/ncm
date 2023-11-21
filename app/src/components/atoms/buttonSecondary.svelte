@@ -17,9 +17,9 @@
 	a:hover .inner {
 		width: 100%;
 	}
-	a:hover .outer {
+	/* a:hover .outer {
 		height: 2px;
-	}
+	} */
 	.outer {
 		position: absolute;
 		bottom: 0;
@@ -33,7 +33,7 @@
 	.inner {
 		height: 100%;
 		width: 0%;
-		background: var(--black-50);
+		background: var(--black-100);
 		transition: width 0.2s ease;
 	}
 </style>

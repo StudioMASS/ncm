@@ -8,6 +8,7 @@
 	let canvas;
 	let audioContext;
 	let volume = 0; // Variable to store microphone volume
+	export let enabled = false;
 
 	// Function to request microphone access
 	async function getMicrophoneAccess() {
@@ -32,6 +33,7 @@
 				requestAnimationFrame(getVolume);
 			};
 
+			enabled = true;
 			getVolume();
 		} catch (error) {
 			console.error('Error accessing microphone', error);
@@ -44,7 +46,7 @@
 
 		const scene = new THREE.Scene();
 		const camera = new THREE.PerspectiveCamera(
-			100,
+			25,
 			window.innerWidth / window.innerHeight,
 			0.1,
 			1000
@@ -70,7 +72,7 @@
   
 		void main() {
 		  vUv = uv;
-		  float bumpHeight = volume * 0.0000005; // Modifying bumpHeight based on volume
+		  float bumpHeight = volume * 0.005; // Modifying bumpHeight based on volume
 		  float rippleEffect = sin(4.0 * position.y + time) * 0.04 + volume * 0.000005; // Ripple effect
 		  vec3 bumpedPosition = position + normal * (noise(position, time) * bumpHeight + rippleEffect);
 		  vNormal = normal;
@@ -172,11 +174,11 @@
 		});
 
 		// Add click event listener to canvas for microphone access
-		// canvas.addEventListener('click', () => {
-		// 	if (!audioContext) {
-		// 		getMicrophoneAccess();
-		// 	}
-		// });
+		canvas.addEventListener('click', () => {
+			if (!audioContext) {
+				getMicrophoneAccess();
+			}
+		});
 	});
 </script>
 

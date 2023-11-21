@@ -31,15 +31,10 @@
 >
     <h1 class="large">National Communication Museum</h1>
     <h1 class="large">Opening Winter 2024</h1>
-    <Orb />
-    <!-- <Plane /> -->
-    <!-- <Gradient /> -->
-    <!-- <Particles /> -->
-    {#if !enabled}
+    <Orb bind:enabled={enabled}/>
         <p 	bind:clientWidth={tipWidth} bind:clientHeight={tipHeight} class="tiny" style="transform: translateX({$mouseX}px) translateY({$mouseY}px)">
-            Click to enable microphone
+            {#if !enabled}Click to enable microphone{:else}Listening ...{/if}
         </p>
-    {/if}
 </section>
 
 <style>
@@ -69,5 +64,6 @@
 		top: 0;
 		left: 0;
 		opacity: 0;
+		transition: opacity 0.2s ease;
 	}
 </style>
