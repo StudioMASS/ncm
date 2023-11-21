@@ -10,7 +10,7 @@
 	import Location from '../components/location.svelte';
 	import Nav from '../components/nav.svelte';
 
-	let scrollY, header, ncm, building, resources, signup;
+	let scrollY, ncm, building, resources, signup;
 	let ncmPerc, buildingPerc, resourcesPerc, signupPerc;
 
 	ncmPerc = 1;
@@ -37,7 +37,7 @@
 
 <section>
 	<div bind:clientHeight={ncm}>
-		<div bind:clientHeight={header}><Header /></div>
+		<Header />
 		<Intro />
 	</div>
 	<div bind:clientHeight={building}>
