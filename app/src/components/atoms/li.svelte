@@ -6,7 +6,7 @@
 </script>
 
 <a href="#">
-	<img />
+	<img src={img} alt="thumbnail" />
 	<div class="content">
 		<p class="small">{title}</p>
 		<div class="subline">

@@ -15,7 +15,12 @@
 			</p>
 			<Filters />
 			<div class="body">
-				<Li title={"Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI"} tag={"Podcast"} author={"Lex Fridman Podcast"}/>
+				<Li
+					title={'Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI'}
+					tag={'Podcast'}
+					author={'Lex Fridman Podcast'}
+					img={'./images/thumbnail-01.jpg'}
+				/>
 				<Li />
 				<Li />
 				<Li />
@@ -67,11 +72,11 @@
 	}
 
 	@media only screen and (max-width: 767px) {
-	.container {
-		flex-direction: column;
-	}
-	.lhs {
-		position: static;
-	}
+		.container {
+			flex-direction: column;
+		}
+		.lhs {
+			position: static;
+		}
 	}
 </style>
