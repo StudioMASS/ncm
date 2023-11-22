@@ -34,5 +34,17 @@
 			overflow: scroll;
 			scroll-snap-type: x mandatory;
 		}
+		section::before {
+			content:"Hello";
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			width: 25%;
+			height: 100%;
+			background: red;
+			z-index: 10;
+			display: block;
+		}
 	}
 </style>

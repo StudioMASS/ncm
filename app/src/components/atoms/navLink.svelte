@@ -57,6 +57,7 @@
 			white-space: nowrap;
 			position: static;
 			scroll-snap-align: center;
+			padding: 12px 24px;
 		}
 
 		a:first-child {
@@ -64,7 +65,7 @@
 		}
 
 		a:last-child {
-			margin-right: 50vw;
+			padding-right: 45vw;
 		}
 	}
 </style>

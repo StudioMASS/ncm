@@ -6,6 +6,7 @@
     let enabled = false;
     let sectionElement;
 	let frameWidth, frameHeight, tipWidth, tipHeight;
+	let windowWidth;
 
     // Define springs for x and y coordinates separately
     const mouseX = spring(0, { stiffness: 0.2, damping: 0.8 });
@@ -13,20 +14,19 @@
 
     function handleMousemove(event) {
         const rect = sectionElement.getBoundingClientRect();
-        // Update spring values
-        // mouseX.set(event.clientX - rect.left);
 		mouseX.set(Math.min(Math.max(parseInt(event.clientX - rect.left + 15), 16), frameWidth - tipWidth - 16));
-        // mouseY.set(event.clientY - rect.top);
 		mouseY.set(Math.min(Math.max(parseInt(event.clientY - rect.top + 15), 16), frameHeight - tipHeight - 16));
     }
 </script>
 
+<svelte:window bind:outerWidth={windowWidth} />
+
 <section
-    bind:this={sectionElement}
-    href="#intro"
-    on:mousemove={handleMousemove}
-    style="cursor: {enabled ? 'auto' : 'pointer'}"
-	bind:clientWidth={frameWidth}
+bind:this={sectionElement}
+href="#intro"
+style="cursor: {enabled ? 'auto' : 'pointer'}"
+on:mousemove={windowWidth > '767' ? handleMousemove : null}
+bind:clientWidth={frameWidth}
 	bind:clientHeight={frameHeight}
 >
     <h1 class="large">National Communication Museum</h1>
@@ -39,12 +39,12 @@
 
 <style>
 	section {
-		height: calc(100vh - var(--nav-height));
+		height: calc(100svh - var(--nav-height));
 		display: flex;
 		justify-content: center;
 		flex-direction: column;
 		padding: var(--padding);
-		background: white;
+		background-color: white;
 		color: white;
 		box-sizing: border-box;
 		position: sticky;
@@ -58,6 +58,7 @@
 	h1{
 		z-index: 1;
 		position: relative;
+		pointer-events: none;
 	}
 	p {
 		position: absolute;
@@ -65,5 +66,13 @@
 		left: 0;
 		opacity: 0;
 		transition: opacity 0.2s ease;
+	}
+	@media only screen and (max-width: 767px) {
+		p {
+			top: auto;
+			left: var(--padding);
+			bottom: var(--padding);
+			opacity: 0.5;
+		}
 	}
 </style>

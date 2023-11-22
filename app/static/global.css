@@ -89,6 +89,7 @@ a {
 	:root {
 		--padding: 14px;
 		--aspect-ratio: 145%;
+		--nav-height: 52px;
 	}
 
 	.large {
@@ -104,6 +105,6 @@ a {
 	}
 
 	.tiny {
-		font-size: 12px;
+		font-size: 14px;
 	}
 }

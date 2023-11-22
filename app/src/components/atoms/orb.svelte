@@ -29,7 +29,7 @@
 				for (let i = 0; i < bufferLength; i++) {
 					sum += dataArray[i];
 				}
-				volume = sum; // Calculate average volume
+				volume = Math.min(Math.max(parseInt(sum/1.5), 0), 6000);
 				requestAnimationFrame(getVolume);
 			};
 
@@ -53,7 +53,7 @@
 		);
 		camera.position.z = 2;
 
-		let resolution = 500;
+		let resolution = window.innerWidth > 767 ? 132 : 52;
 		const geometry = new THREE.SphereGeometry(1, resolution, resolution);
 
 		const noise = `
@@ -72,7 +72,7 @@
   
 		void main() {
 		  vUv = uv;
-		  float bumpHeight = (volume * 0.00005) ; // Modifying bumpHeight based on volume
+		  float bumpHeight = 0.125 + (volume * 0.00005) ; // Modifying bumpHeight based on volume
 		  float rippleEffect = sin(4.0 * position.y + time) * 0.04 + volume * 0.000005; // Ripple effect
 		  vec3 bumpedPosition = position + normal * (noise(position, time) * bumpHeight + rippleEffect);
 		  vNormal = normal;
@@ -92,7 +92,7 @@
     vec3 baseColor = vec3(0.5 + 0.5 * cos(time + vUv.x), 0.5 + 0.5 * sin(time + vUv.y), 0.5 - 0.5 * cos(time));
     
     // Enhanced metallic and reflective properties
-    vec3 metallicColor = mix(vec3(1.0, 1.0, 1.0), baseColor, lightStrength * 0.99); // Increase reflectivity
+    vec3 metallicColor = mix(vec3(1.0, 1.0, 1.0), baseColor, lightStrength * 0.8); // Increase reflectivity
     float glossiness = 0.9; // Increase glossiness
 
     gl_FragColor = vec4(metallicColor * glossiness, 1.0);
@@ -121,32 +121,6 @@
 		// Post-processing setup
 		const composer = new EffectComposer(renderer);
 		composer.addPass(new RenderPass(scene, camera));
-
-		// Grain Shader
-		const grainShader = {
-			uniforms: {
-				tDiffuse: { value: null },
-				amount: { value: 0.8 }
-			},
-			vertexShader: `varying vec2 vUv; void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
-			fragmentShader: `
-		  uniform sampler2D tDiffuse;
-		  varying vec2 vUv;
-  
-		  float random(vec2 co){
-			return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
-		  }
-  
-		  void main() {
-			vec4 color = texture2D(tDiffuse, vUv);
-			float randomVal = random(gl_FragCoord.xy) * 0.05;
-			gl_FragColor = vec4(color.rgb + randomVal, color.a);
-		  }
-		`
-		};
-
-		// const grainPass = new ShaderPass(grainShader);
-		// composer.addPass(grainPass);
 
 		const animate = (time) => {
 			requestAnimationFrame(animate);
@@ -179,6 +153,7 @@
 				getMicrophoneAccess();
 			}
 		});
+
 	});
 </script>
 
@@ -191,6 +166,6 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background: var(--black-100);
+		background: white;
 	}
 </style>
