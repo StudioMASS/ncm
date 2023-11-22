@@ -72,7 +72,7 @@
   
 		void main() {
 		  vUv = uv;
-		  float bumpHeight = 0.125 + (volume * 0.00005) ; // Modifying bumpHeight based on volume
+		  float bumpHeight = 0.125 + (volume * 0.00025) ; // Modifying bumpHeight based on volume
 		  float rippleEffect = sin(4.0 * position.y + time) * 0.04 + volume * 0.000005; // Ripple effect
 		  vec3 bumpedPosition = position + normal * (noise(position, time) * bumpHeight + rippleEffect);
 		  vNormal = normal;
@@ -93,7 +93,7 @@
     
     // Enhanced metallic and reflective properties
     vec3 metallicColor = mix(vec3(1.0, 1.0, 1.0), baseColor, lightStrength * 0.8); // Increase reflectivity
-    float glossiness = 0.9; // Increase glossiness
+    float glossiness = 0.75; // Increase glossiness
 
     gl_FragColor = vec4(metallicColor * glossiness, 1.0);
 }
@@ -153,7 +153,6 @@
 				getMicrophoneAccess();
 			}
 		});
-
 	});
 </script>
 
