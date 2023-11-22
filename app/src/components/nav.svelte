@@ -34,9 +34,9 @@
 			overflow: scroll;
 			scroll-snap-type: x mandatory;
 		}
-		section::before {
+		/* section::before {
 			content:"Hello";
-			position: absolute;
+			position: fixed;
 			top: 0;
 			bottom: 0;
 			left: 0;
@@ -45,6 +45,6 @@
 			background: red;
 			z-index: 10;
 			display: block;
-		}
+		} */
 	}
 </style>
