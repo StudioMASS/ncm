@@ -8,7 +8,7 @@ export const dataset = process.env.SANITY_STUDIO_DATASET
 
 export default defineConfig({
   name: 'ncm-interim-site',
-  title: 'NCM Interim Site',
+  title: 'NCM Website',
   projectId,
   dataset,
   plugins: [deskTool(), visionTool()],
