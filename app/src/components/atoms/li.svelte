@@ -12,7 +12,7 @@
 <style>
 	a {
 		padding: var(--padding) 0px;
-		border-bottom: 0.5px solid var(--border);
+		border-bottom: var(--border);
 		display: flex;
 		gap: var(--padding);
 		align-items: center;
@@ -21,6 +21,7 @@
 	img {
 		width: 56px;
 		height: 56px;
+		flex-shrink: 0;
 		background: var(--black-05);
 		border-radius: 4px;
 	}

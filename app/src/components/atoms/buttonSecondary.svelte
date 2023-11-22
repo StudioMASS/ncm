@@ -4,7 +4,7 @@
 </script>
 
 <a href={url}>
-	<p>{text}</p>
+	<p class="small">{text}</p>
 	<div class="outer"><div class="inner"/></div>
 </a>
 

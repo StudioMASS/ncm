@@ -27,4 +27,12 @@
 		box-sizing: border-box;
 		align-items: center;
 	}
+
+	@media only screen and (max-width: 767px) {
+		section {
+			max-width: 100%;
+			overflow: scroll;
+			scroll-snap-type: x mandatory;
+		}
+	}
 </style>

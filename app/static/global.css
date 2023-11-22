@@ -1,18 +1,18 @@
 :root {
 	--padding: 20px;
 
-	--black-100: #17181A;
-	--black-90: #2E2F31;
+	--black-100: #17181a;
+	--black-90: #2e2f31;
 	--black-80: #454648;
 	--black-60: #747476;
-	--black-50: #8B8B8C;
-	--black-40: #A2A3A3;
-	--black-20: #D1D1D1;
-	--black-10: #E8E8E8;
-	--black-05: #F3F3F4;
+	--black-50: #8b8b8c;
+	--black-40: #a2a3a3;
+	--black-20: #d1d1d1;
+	--black-10: #e8e8e8;
+	--black-05: #f3f3f4;
 
-	--border: rgba(23, 24, 26, 0.1);
-	--aspect-ratio: min(calc(100vh - (3 * var(--padding)) - (22.1px) - var(--nav-height) ), 1000px);
+	--border: 0.8px solid rgba(23, 24, 26, 0.1);
+	--aspect-ratio: min(calc(100vh - (3 * var(--padding)) - (22.1px) - var(--nav-height)), 1000px);
 
 	--nav-height: 44px;
 }
@@ -26,20 +26,27 @@ html {
 	scroll-behavior: smooth;
 }
 
-::-moz-selection { /* Code for Firefox */
+::-moz-selection {
+	/* Code for Firefox */
 	background: var(--border);
-  }
-  
-  ::selection {
+}
+
+::selection {
 	background: var(--border);
-  }
+}
 
 @font-face {
 	font-family: sans;
 	src: url(ABCDiatype-Regular.ttf);
-  }
+}
 
-h1, h2, h3, h4, h5, h6, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
 	font-size: 1rem;
 	font-weight: 400;
 	margin: 0px;
@@ -78,15 +85,14 @@ a {
 	text-decoration: none;
 }
 
-
 @media only screen and (max-width: 767px) {
 	:root {
-		--padding: 16px;
-		--aspect-ratio: 140%;	
+		--padding: 14px;
+		--aspect-ratio: 145%;
 	}
 
 	.large {
-		font-size: 23px;
+		font-size: 22px;
 	}
 
 	.medium {
@@ -96,7 +102,7 @@ a {
 	.small {
 		font-size: 14px;
 	}
-	
+
 	.tiny {
 		font-size: 12px;
 	}

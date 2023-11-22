@@ -4,8 +4,8 @@
 
 <section>
 	<div class="container">
-		<div class="lhs">Frequently asked questions</div>
-		<div class="rhs">
+		<div class="lhs small">Frequently asked questions</div>
+		<div class="rhs small">
 			<Question />
 			<Question />
 			<Question />
@@ -19,7 +19,7 @@
 
 <style>
 	section {
-		padding: var(--padding) var(--padding) 220px;
+		padding: 0px var(--padding) 220px var(--padding);
 		position: relative;
 		background: white;
 	}
@@ -27,7 +27,7 @@
 		display: flex;
 		gap: var(--padding);
 		padding-top: var(--padding);
-		border-top: 0.5px solid var(--border);
+		border-top: var(--border);
 		align-items: start;
 	}
 	.container div {
@@ -36,5 +36,15 @@
 	.lhs {
 		position: sticky;
 		top: var(--padding);
+	}
+	
+	@media only screen and (max-width: 767px) {
+		.container {
+			flex-direction: column;
+		}
+		.lhs {
+			position: static;
+			margin-bottom: calc(32px - var(--padding));
+		}
 	}
 </style>

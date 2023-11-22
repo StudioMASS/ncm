@@ -10,9 +10,9 @@
 
 <style>
 	div {
-		padding-top: 20px;
+		padding-top: var(--padding);
 		padding-bottom: 56px;
-		border-top: 0.5px solid var(--border);
+		border-top: var(--border);
 	}
 	div:first-child {
 		border-top: 0px;
@@ -23,5 +23,19 @@
 	}
 	p {
 		color: var(--black-50);
+	}
+
+	@media only screen and (max-width: 767px) {
+		div {
+			padding: 32px 0px;
+		}
+	h2 {
+		margin-bottom: 2px;
+	}
+
+	/* div:first-child {
+		border-top: var(--border);
+		padding-top: var(--padding);
+	} */
 	}
 </style>

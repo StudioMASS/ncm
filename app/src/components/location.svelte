@@ -1,8 +1,8 @@
 <section>
 	<div class="container">
 		<div class="header">
-			<h2>Location</h2>
-			<h3>375 Burwood Rd, Hawthorn VIC 3122</h3>
+			<h2 class="small">Location</h2>
+			<h3 class="small">375 Burwood Rd, Hawthorn VIC 3122</h3>
 		</div>
 		<div class="placeholder" />
 	</div>
@@ -25,7 +25,7 @@
 		color: var(--black-50);
 	}
 	.container {
-		border-top: 0.5px solid var(--border);
+		border-top: var(--border);
 		padding-top: var(--padding);
 	}
 	.placeholder {
@@ -35,7 +35,20 @@
 
 	@media only screen and (max-width: 767px) {
 		.header {
-			flex-direction: column;
+			/* flex-direction: column; */
+			margin-bottom: var(--padding);
+			gap: 4px;
+			display: block;
+		}
+
+		.header * {
+		display: inline;
+		width: auto;
+		margin-bottom: 0px;
+		}
+
+		h2::after {
+		content: " –";
 		}
 	}
 </style>

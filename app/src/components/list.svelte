@@ -5,7 +5,7 @@
 
 <section id="resources">
 	<div class="container">
-		<div class="lhs">Reading list</div>
+		<div class="lhs small">Reading list</div>
 		<div class="rhs">
 			<p class="small">
 				Nisi mollit est commodo laborum ea cillum ea reprehenderit laborum elit deserunt. Irure enim
@@ -47,7 +47,7 @@
 		display: flex;
 		gap: var(--padding);
 		padding-top: var(--padding);
-		border-top: 0.5px solid var(--border);
+		border-top: var(--border);
 		align-items: start;
 	}
 	.container div {
@@ -62,7 +62,16 @@
 	}
 
 	.body {
-		border-top: 0.5px solid var(--border);
+		border-top: var(--border);
 		margin-top: 16px;
+	}
+
+	@media only screen and (max-width: 767px) {
+	.container {
+		flex-direction: column;
+	}
+	.lhs {
+		position: static;
+	}
 	}
 </style>

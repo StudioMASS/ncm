@@ -49,4 +49,22 @@
 		background: var(--black-05);
 		z-index: 0;
 	}
+
+	@media only screen and (max-width: 767px) {
+		a {
+			width: auto;
+			flex-shrink: 0;
+			white-space: nowrap;
+			position: static;
+			scroll-snap-align: center;
+		}
+
+		a:first-child {
+			margin-left: 50vw;
+		}
+
+		a:last-child {
+			margin-right: 50vw;
+		}
+	}
 </style>

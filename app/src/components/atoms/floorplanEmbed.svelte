@@ -61,7 +61,7 @@
     }
     a {
         padding: 12px 20px;
-        border: 1px solid var(--border);
+        border: var(--border);
         color: var(--black-100);
         display: flex;
         border-radius: 100px;
@@ -83,7 +83,7 @@
 
     a {
         padding: 10px 18px;
-        border: 1px solid var(--border);
+        border: var(--border);
         color: var(--black-100);
         display: flex;
         border-radius: 100px;

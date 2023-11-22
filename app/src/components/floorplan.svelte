@@ -29,7 +29,7 @@
 		color: var(--black-50);
 	}
 	.container {
-		border-top: 0.5px solid var(--border);
+		border-top: var(--border);
 		padding-top: var(--padding);
 	}
 	.placeholder {
@@ -40,14 +40,20 @@
 
 	@media only screen and (max-width: 767px) {
 		.header {
-			flex-direction: column;
+			/* flex-direction: column; */
 			margin-bottom: var(--padding);
 			gap: 4px;
+			display: block;
 		}
 
 		.header * {
-		width: 100%;
+		display: inline;
+		width: auto;
 		margin-bottom: 0px;
-	}
+		}
+
+		h2::after {
+		content: " –";
+		}
 	}
 </style>

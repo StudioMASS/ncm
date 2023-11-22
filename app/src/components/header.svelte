@@ -44,7 +44,7 @@
 		justify-content: center;
 		flex-direction: column;
 		padding: var(--padding);
-		background-color: var(--black-100);
+		background: white;
 		color: white;
 		box-sizing: border-box;
 		position: sticky;

@@ -1,8 +1,8 @@
 <div>
-	<a href="#all">All<span>14</span></a>
-	<a href="#articles">Articles<span>14</span></a>
-	<a href="#podcasts">Podcasts<span>14</span></a>
-	<a href="#videos">Videos<span>14</span></a>
+	<a class="small" href="#all">All<span>14</span></a>
+	<a class="small" href="#articles">Articles<span>14</span></a>
+	<a class="small" href="#podcasts">Podcasts<span>14</span></a>
+	<a class="small" href="#videos">Videos<span>14</span></a>
 </div>
 
 <style>

@@ -20,7 +20,7 @@
 		padding: var(--padding);
 		background: white;
 		position: relative;
-		height: 60vh;
+		min-height: 60vh;
 	}
 	h2 {
 		margin-bottom: 32px;
@@ -31,5 +31,15 @@
 		display: flex;
 		flex-direction: column;
 		align-items: start;
+	}
+
+	@media only screen and (max-width: 767px) {
+		.container {
+			position: static;
+		}
+
+		h2 {
+		margin-bottom: 24px;
+	}
 	}
 </style>
