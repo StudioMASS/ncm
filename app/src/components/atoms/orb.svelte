@@ -8,7 +8,7 @@
 	let canvas;
 	let audioContext;
 	let volume = 0; // Variable to store microphone volume
-	export let enabled = false;
+	export let enabled;
 
 	// Function to request microphone access
 	async function getMicrophoneAccess() {
@@ -46,9 +46,9 @@
 
 		const scene = new THREE.Scene();
 		const camera = new THREE.PerspectiveCamera(
-			25,
+			35,
 			window.innerWidth / window.innerHeight,
-			0.1,
+			0.02,
 			1000
 		);
 		camera.position.z = 2;
@@ -72,7 +72,7 @@
   
 		void main() {
 		  vUv = uv;
-		  float bumpHeight = volume * 0.005; // Modifying bumpHeight based on volume
+		  float bumpHeight = (volume * 0.00005) ; // Modifying bumpHeight based on volume
 		  float rippleEffect = sin(4.0 * position.y + time) * 0.04 + volume * 0.000005; // Ripple effect
 		  vec3 bumpedPosition = position + normal * (noise(position, time) * bumpHeight + rippleEffect);
 		  vNormal = normal;
