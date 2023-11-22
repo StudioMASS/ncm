@@ -20,7 +20,7 @@ export const client = createClient({
 
 export async function getPosts() {
   return await client.fetch(
-    groq`*[_type == "post" && defined(slug.current)] | order(_createdAt desc)`
+    groq`*[_type == "post"] | order(_createdAt desc)`
   );
 }
 

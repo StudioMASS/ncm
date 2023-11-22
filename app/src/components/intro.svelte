@@ -1,15 +1,12 @@
 <script>
 	import ButtonSecondary from './atoms/buttonSecondary.svelte';
+
+	export let data;
 </script>
 
 <section id="intro">
 	<div class="container">
-		<h2 class="large">
-			The National Communication Museum connects audiences to artefacts, stories and technologies of
-			communication history. With items dating from the 1800s to current, we focus on demonstrating
-			the powerful impact of technology in connecting societies. Adipisicing qui eiusmod commodo
-			veniam magna aliquip pariatur esse in aliqua pariatur anim.
-		</h2>
+		<h2 class="large">{data.posts[0].intro}</h2>
 
 		<ButtonSecondary text="Signup for updates" url="#signup" />
 	</div>
@@ -39,7 +36,7 @@
 		}
 
 		h2 {
-		margin-bottom: 24px;
-	}
+			margin-bottom: 24px;
+		}
 	}
 </style>

@@ -1,4 +1,6 @@
 <script>
+	import { urlFor } from '../../lib/utils/image';
+
 	export let title;
 	export let tag;
 	export let author;
@@ -6,7 +8,7 @@
 </script>
 
 <a href="#">
-	<img src={img} alt="thumbnail" />
+	<img src={img ? urlFor(img) : null} alt="thumbnail" />
 	<div class="content">
 		<p class="small">{title}</p>
 		<div class="subline">
@@ -51,5 +53,6 @@
 		align-content: center;
 		border-radius: 2px;
 		color: var(--black-60);
+		text-transform: capitalize;
 	}
 </style>
