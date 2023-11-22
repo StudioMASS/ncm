@@ -15,7 +15,7 @@
 			</p>
 			<Filters />
 			<div class="body">
-				<Li />
+				<Li title={"Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI"} tag={"Podcast"} author={"Lex Fridman Podcast"}/>
 				<Li />
 				<Li />
 				<Li />

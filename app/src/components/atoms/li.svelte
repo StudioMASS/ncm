@@ -1,10 +1,17 @@
+<script>
+	export let title;
+	export let tag;
+	export let author;
+	export let img;
+</script>
+
 <a href="#">
 	<img />
 	<div class="content">
-		<p class="small">Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI</p>
+		<p class="small">{title}</p>
 		<div class="subline">
-			<p class="tag">Podcast</p>
-			<p class="tiny">Lex Fridman Podcast</p>
+			<p class="tag">{tag}</p>
+			<p class="tiny">{author}</p>
 		</div>
 	</div>
 </a>
@@ -24,10 +31,16 @@
 		flex-shrink: 0;
 		background: var(--black-05);
 		border-radius: 4px;
+		border: var(--border);
+		overflow: hidden;
 	}
 	.subline {
 		display: flex;
+		align-items: center;
 		gap: 8px;
+	}
+	.small {
+		margin-bottom: 4px;
 	}
 	.tag {
 		font-size: 9px;
@@ -36,5 +49,7 @@
 		display: flex;
 		justify-items: center;
 		align-content: center;
+		border-radius: 2px;
+		color: var(--black-60);
 	}
 </style>

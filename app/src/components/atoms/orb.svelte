@@ -29,7 +29,7 @@
 				for (let i = 0; i < bufferLength; i++) {
 					sum += dataArray[i];
 				}
-				volume = Math.min(Math.max(parseInt(sum/1.5), 0), 6000);
+				volume = sum;
 				requestAnimationFrame(getVolume);
 			};
 
