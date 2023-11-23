@@ -39,6 +39,7 @@
 		left: 0;
 		height: 100%;
 		width: 100%;
+		object-fit: cover;
 	}
 
 	@media only screen and (max-width: 767px) {
