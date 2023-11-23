@@ -4,7 +4,7 @@
 			<h2 class="small">Location</h2>
 			<h3 class="small">375 Burwood Rd, Hawthorn VIC 3122</h3>
 		</div>
-		<div class="placeholder" />
+		<div class="frame"><img src="./images/Map.jpg" alt="map" /></div>
 	</div>
 </section>
 
@@ -28,9 +28,17 @@
 		border-top: var(--border);
 		padding-top: var(--padding);
 	}
-	.placeholder {
+	.frame {
 		padding-top: var(--aspect-ratio);
 		background: var(--black-05);
+		position: relative;
+	}
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
 	}
 
 	@media only screen and (max-width: 767px) {
@@ -42,13 +50,13 @@
 		}
 
 		.header * {
-		display: inline;
-		width: auto;
-		margin-bottom: 0px;
+			display: inline;
+			width: auto;
+			margin-bottom: 0px;
 		}
 
 		h2::after {
-		content: " –";
+			content: ' –';
 		}
 	}
 </style>
