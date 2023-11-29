@@ -18,7 +18,7 @@
 			<div class="body">
 				{#each data.posts[0].item as item}
 				{#if item.contentType == filter || filter == 'all'}
-					<Li title={item.title} tag={item.contentType} author={item.author} img={item.image} />
+					<Li title={item.title} tag={item.contentType} author={item.author} img={item.image} url={item.link} />
 				{/if}
 				{/each}
 			</div>

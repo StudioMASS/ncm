@@ -5,9 +5,10 @@
 	export let tag;
 	export let author;
 	export let img;
+	export let url;
 </script>
 
-<a href="#test" target="_blank">
+<a href="{url ? url : '#'}" target="_blank">
 	<img src={img ? urlFor(img) : null} alt="thumbnail" />
 	<div class="content">
 		<p class="small">{title}</p>
