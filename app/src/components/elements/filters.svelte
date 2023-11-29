@@ -20,13 +20,9 @@
 <style>
 	div {
 		display: flex;
-		gap: 24px;
+		gap: var(--padding);
 		border-bottom: var(--border);
-		padding: var(--padding) 0px;
-		position: sticky;
-		top: 0;
-		background: white;
-		z-index: 1;
+		padding: var(--padding) 0px
 	}
 	span {
 		font-feature-settings: 'ss14' on, 'sups' on;
