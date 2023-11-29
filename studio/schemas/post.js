@@ -8,7 +8,7 @@ export default defineType({
     defineField({
       title: 'Introduction',
       name: 'intro',
-      type: 'text'
+      type: 'text',
     }),
     defineField({
       name: 'faqs',
@@ -21,16 +21,16 @@ export default defineType({
             {
               name: 'question',
               title: 'Question',
-              type: 'string'
+              type: 'string',
             },
             {
               name: 'answer',
               title: 'Answer',
-              type: 'text'
-            }
-          ]
-        }
-      ]
+              type: 'text',
+            },
+          ],
+        },
+      ],
     }),
     defineField({
       name: 'listpara',
@@ -51,30 +51,35 @@ export default defineType({
               type: 'string',
               options: {
                 list: [
-                  { title: 'Podcast', value: 'podcast' },
-                  { title: 'Video', value: 'video' },
-                  { title: 'Article', value: 'article' }
+                  {title: 'Podcast', value: 'podcast'},
+                  {title: 'Video', value: 'video'},
+                  {title: 'Article', value: 'article'},
                 ],
               },
             },
             {
               name: 'image',
-              title: "Image",
-              type: 'image'
+              title: 'Image',
+              type: 'image',
             },
             {
               name: 'title',
               title: 'Title',
-              type: 'string'
+              type: 'string',
             },
             {
               name: 'author',
               title: 'Author',
-              type: 'string'
+              type: 'string',
             },
-          ]
-        }
-      ]
+            {
+              name: 'link',
+              title: 'Link',
+              type: 'url',
+            },
+          ],
+        },
+      ],
     }),
   ],
 
