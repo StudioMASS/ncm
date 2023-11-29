@@ -9,8 +9,8 @@ const singletonActions = new Set(['publish', 'discardChanges', 'restore'])
 // Define the singleton document types
 const singletonTypes = new Set(['post'])
 
-export const projectId = process.env.PUBLIC_SANITY_PROJECT_ID
-export const dataset = process.env.PUBLIC_SANITY_DATASET
+export const projectId = process.env.SANITY_STUDIO_PROJECT_ID
+export const dataset = process.env.SANITY_STUDIO_DATASET
 
 export default defineConfig({
   name: 'ncm-interim-site',

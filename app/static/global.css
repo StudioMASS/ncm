@@ -28,11 +28,11 @@ html {
 
 ::-moz-selection {
 	/* Code for Firefox */
-	background: var(--border);
+	background: rgba(0, 0, 0, 0.1);
 }
 
 ::selection {
-	background: var(--border);
+	background: rgba(0, 0, 0, 0.1);
 }
 
 @font-face {
