@@ -3,20 +3,23 @@
 	import Li from './atoms/li.svelte';
 
 	export let data;
-	console.log(data);
+
+	let filter;
 </script>
 
 <section id="resources">
 	<div class="container">
-		<div class="lhs small">Reading list</div>
+		<div class="lhs small">Further readings</div>
 		<div class="rhs">
 			<p class="small">
 				{data.posts[0].listpara}
 			</p>
-			<Filters />
+			<Filters data={data.posts[0].item} bind:selectedValue={filter}/>
 			<div class="body">
 				{#each data.posts[0].item as item}
+				{#if item.contentType == filter || filter == 'all'}
 					<Li title={item.title} tag={item.contentType} author={item.author} img={item.image} />
+				{/if}
 				{/each}
 			</div>
 		</div>

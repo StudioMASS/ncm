@@ -7,7 +7,7 @@
 	export let img;
 </script>
 
-<a href="#">
+<a href="#test" target="_blank">
 	<img src={img ? urlFor(img) : null} alt="thumbnail" />
 	<div class="content">
 		<p class="small">{title}</p>
@@ -26,6 +26,8 @@
 		gap: var(--padding);
 		align-items: center;
 		box-sizing: border-box;
+		position: relative;
+		overflow: hidden;
 	}
 	img {
 		width: 56px;
@@ -43,6 +45,10 @@
 	}
 	.small {
 		margin-bottom: 4px;
+	}
+	.content, img {
+		z-index: 0;
+		position: relative;
 	}
 	.tag {
 		font-size: 9px;

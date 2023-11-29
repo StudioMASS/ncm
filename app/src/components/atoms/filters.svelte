@@ -1,8 +1,20 @@
+<script>
+	export let data;
+
+	let allCount = data.length;
+	let articleCount = data.filter(item => item.contentType === 'article').length;
+	let podcastCount = data.filter(item => item.contentType === 'podcast').length;
+	let videoCount = data.filter(item => item.contentType === 'video').length;
+
+	export let selectedValue = "all"
+
+</script>
+
 <div>
-	<a class="small active" href="#all">All<span>14</span></a>
-	<a class="small" href="#articles">Articles<span>6</span></a>
-	<a class="small" href="#podcasts">Podcasts<span>3</span></a>
-	<a class="small" href="#videos">Videos<span>2</span></a>
+	<a class="small active" href="#all" on:click={() => selectedValue == 'all'}>All<span>{allCount}</span></a>
+	<a class="small" href="#articles" on:click={() => selectedValue == 'article'}>Articles<span>{articleCount}</span></a>
+	<a class="small" href="#podcasts">Podcasts<span>{podcastCount}</span></a>
+	<a class="small" href="#videos">Videos<span>{videoCount}</span></a>
 </div>
 
 <style>
@@ -16,6 +28,10 @@
 	}
 	a {
 		opacity: 0.5;
+		transition: opacity 0.2 ease;
+	}
+	a:hover {
+		opacity: 0.75;
 	}
 	a.active {
 		opacity: 1;

@@ -9,6 +9,7 @@
 	import List from '../components/list.svelte';
 	import Location from '../components/location.svelte';
 	import Nav from '../components/nav.svelte';
+	import Acknowledgement from '../components/acknowledgement.svelte';
 
 	let scrollY, ncm, building, resources, signup;
 	let ncmPerc, buildingPerc, resourcesPerc, signupPerc;
@@ -34,11 +35,15 @@
 		};
 	});
 
+	let acknowledge = false;
+
 	export let data;
-	console.log(data);
 </script>
 
 <section>
+	{#if acknowledge}
+	<Acknowledgement />
+	{/if}
 	<div bind:clientHeight={ncm}>
 		<Header />
 		<Intro {data} />
