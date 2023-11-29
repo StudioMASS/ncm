@@ -1,13 +1,13 @@
 <script>
 	import { onMount } from 'svelte';
 
-	import Faqs from '../components/faqs.svelte';
-	import Floorplan from '../components/floorplan.svelte';
-	import Footer from '../components/footer.svelte';
-	import Header from '../components/header.svelte';
-	import Intro from '../components/intro.svelte';
-	import List from '../components/list.svelte';
-	import Location from '../components/location.svelte';
+	import Faqs from '../components/blocks/faqs.svelte';
+	import Floorplan from '../components/blocks/floorplan.svelte';
+	import Footer from '../components/blocks/footer.svelte';
+	import Header from '../components/blocks/header.svelte';
+	import Intro from '../components/blocks/intro.svelte';
+	import List from '../components/blocks/list.svelte';
+	import Location from '../components/blocks/location.svelte';
 	import Nav from '../components/nav.svelte';
 	import Acknowledgement from '../components/acknowledgement.svelte';
 

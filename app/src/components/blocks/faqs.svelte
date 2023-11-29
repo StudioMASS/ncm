@@ -1,5 +1,5 @@
 <script>
-	import Question from './atoms/question.svelte';
+	import Question from '../atoms/question.svelte';
 
 	export let data;
 </script>

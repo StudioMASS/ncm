@@ -1,7 +1,7 @@
 <script>
     import { spring } from 'svelte/motion';
-    import Gradient from './atoms/gradient.svelte';
-    import Orb from './atoms/orb.svelte';
+    import Gradient from '../atoms/gradient.svelte';
+    import Orb from '../atoms/orb.svelte';
 
     let enabled = false;
     let sectionElement;

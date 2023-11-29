@@ -1,5 +1,5 @@
 <script>
-	import ButtonSecondary from './atoms/buttonSecondary.svelte';
+	import ButtonSecondary from '../atoms/buttonSecondary.svelte';
 
 	export let data;
 </script>

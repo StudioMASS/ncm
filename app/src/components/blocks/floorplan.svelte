@@ -1,5 +1,5 @@
 <script>
-	import FloorplanEmbed from "./atoms/floorplanEmbed.svelte";
+	import FloorplanEmbed from "../atoms/floorplanEmbed.svelte";
 
 </script>
 <section id="building">

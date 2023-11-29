@@ -1,10 +1,10 @@
 <script>
-	import Filters from './atoms/filters.svelte';
-	import Li from './atoms/li.svelte';
+	import Filters from '../elements/filters.svelte';
+	import Li from '../elements/li.svelte';
 
 	export let data;
 
-	let filter;
+	let filter = "all";
 </script>
 
 <section id="resources">
@@ -47,12 +47,12 @@
 		top: var(--padding);
 	}
 	p {
-		margin-bottom: 64px;
+		margin-bottom: 76px;
 	}
 
 	.body {
-		border-top: var(--border);
-		margin-top: 16px;
+		/* border-top: var(--border); */
+		/* margin-top: 16px; */
 	}
 
 	@media only screen and (max-width: 767px) {
