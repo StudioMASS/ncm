@@ -5,14 +5,14 @@
   let map;
   let mapContainer;
   let observer;
-  let viewThreshold = 0.8; // Variable to control the percentage of in-view trigger
+  let viewThreshold = 0.75; // Variable to control the percentage of in-view trigger
 
   const lng = 145.036471;
   const lat = -37.822357;
   const initialZoom = 16.75;
   const initialPitch = 0;
   const initalBearing = 9;
-  const transitionDuration = 600; // Duration of the transition in milliseconds
+  const transitionDuration = 400; // Duration of the transition in milliseconds
 
   function initMap(container) {
     map = new mapboxgl.Map({
@@ -31,7 +31,7 @@
           if (entry.isIntersecting) {
             map.flyTo({
               center: [lng, lat],
-              zoom: 17.5,
+              zoom: 17.75,
               pitch: 60,
               bearing: 40,
               duration: transitionDuration,
