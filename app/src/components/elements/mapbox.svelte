@@ -12,7 +12,7 @@
   const initialZoom = 16.75;
   const initialPitch = 0;
   const initalBearing = 9;
-  const transitionDuration = 400; // Duration of the transition in milliseconds
+  const transitionDuration = 800; // Duration of the transition in milliseconds
 
   function initMap(container) {
     map = new mapboxgl.Map({
