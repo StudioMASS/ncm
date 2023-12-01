@@ -42,6 +42,7 @@
 	.subline {
 		display: flex;
 		align-items: center;
+
 		gap: 8px;
 	}
 	.small {
