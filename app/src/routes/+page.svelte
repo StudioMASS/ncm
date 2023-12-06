@@ -1,8 +1,6 @@
 <script>
   import { onMount } from "svelte";
 
-  import { fade } from "svelte/transition";
-
   import Faqs from "../components/blocks/faqs.svelte";
   import Floorplan from "../components/blocks/floorplan.svelte";
   import Footer from "../components/blocks/footer.svelte";
