@@ -6,6 +6,7 @@
   export let buildingPerc;
   export let resourcesPerc;
   export let signupPerc;
+  export let notLoaded;
 
   let barScrollPercentage = 0;
   let section;
