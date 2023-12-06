@@ -2,6 +2,8 @@
   import { onMount } from "svelte";
   import ButtonSecondary from "./atoms/buttonSecondary.svelte";
 
+  import { fade } from "svelte/transition";
+
   let notLoaded = true;
   export let showAcknowledgement = true;
 
@@ -15,9 +17,9 @@
 </script>
 
 <a
-  href="#skip"
   on:click={closeAcknowledgement}
   class:fade={!showAcknowledgement}
+  transition:fade
 >
   <h2 class="medium" class:notLoaded>
     The NCM acknowledges all First Peoples of this land and celebrate their
@@ -25,7 +27,7 @@
     to Elders and Ancestors who watch over us and guide Aboriginal and Torres
     Strait Islander community.
   </h2>
-  <p class:notLoaded>Proceed</p>
+  <p class="small" class:notLoaded>Proceed</p>
 </a>
 
 <style>
@@ -45,6 +47,7 @@
     padding: var(--padding);
     box-sizing: border-box;
     transition: opacity 0.4s ease;
+    cursor: pointer;
   }
   a.fade {
     opacity: 0;
