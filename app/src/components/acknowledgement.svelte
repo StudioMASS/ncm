@@ -10,9 +10,7 @@
   });
 
   function closeAcknowledgement() {
-    setTimeout(() => {
-      showAcknowledgement = false;
-    }, 400);
+    showAcknowledgement = false;
   }
 </script>
 
