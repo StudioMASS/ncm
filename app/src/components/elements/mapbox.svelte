@@ -33,7 +33,7 @@
               center: [lng, lat],
               zoom: 17.75,
               pitch: 60,
-              bearing: 40,
+              bearing: 30,
               duration: transitionDuration,
               easing: (t) => t * (2 - t), // Easing function for a smooth effect
             });
