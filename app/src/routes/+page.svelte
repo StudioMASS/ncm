@@ -39,10 +39,39 @@
     };
   });
 
-  let acknowledge = false;
+  let acknowledge = true;
 
   export let data;
+  // Get from Sanity
+  const meta = {
+    title: "National Communication Museum | Opening Winter 2024",
+    description:
+      "The National Communication Museum connects audiences to artefacts, stories and technologies of communication history.",
+    image: "",
+    url: "",
+    canonical: "",
+    twitter: "",
+  };
 </script>
+
+<svelte:head>
+  <title>{meta.title}</title>
+  <link rel="canonical" href={meta.canonical} />
+
+  <meta name="description" content={meta.description} />
+
+  <meta property="og:title" content={meta.title} />
+  <meta property="og:type" content="website" />
+  <meta property="og:URL" content={meta.url} />
+  <meta property="og:image" content={meta.image} />
+  <meta property="og:description" content={meta.description} />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={meta.title} />
+  <meta name="twitter:description" content={meta.description} />
+  <meta name="twitter:image" content={meta.image} />
+  <meta name="twitter:site" content="@{meta.twitter}" />
+</svelte:head>
 
 <section>
   {#if acknowledge}
