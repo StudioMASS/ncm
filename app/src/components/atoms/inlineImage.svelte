@@ -24,5 +24,6 @@
   }
   figcaption {
     margin-top: 4px;
+    color: var(--black-60);
   }
 </style>

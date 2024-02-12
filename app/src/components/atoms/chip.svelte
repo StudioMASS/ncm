@@ -4,7 +4,7 @@
   export let icon = null;
 </script>
 
-<a href={url}>
+<a class="tiny" href={url}>
   {#if icon}
     <i class={icon} />
   {/if}
@@ -13,7 +13,7 @@
 
 <style>
   a {
-    padding: 5px 8px;
+    padding: 9px 14px;
     background: var(--black-05);
     border-radius: 4px;
     box-sizing: border-box;
@@ -21,5 +21,16 @@
     top: var(--padding);
     left: var(--padding);
     z-index: 100;
+    color: var(--black-60);
+    transition: background 0.2s ease, color 0.2s ease;
+    box-sizing: border-box;
+  }
+
+  a:hover {
+    background: var(--black-10);
+    color: var(--black-80);
+  }
+  i {
+    margin-right: 2px;
   }
 </style>

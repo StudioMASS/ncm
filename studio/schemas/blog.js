@@ -25,6 +25,11 @@ export default defineType({
       type: 'date',
     },
     {
+      title: 'Read Estimate (Min)',
+      name: 'time',
+      type: 'number',
+    },
+    {
       title: 'Author',
       name: 'author',
       type: 'reference',
