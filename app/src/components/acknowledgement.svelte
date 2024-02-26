@@ -1,31 +1,31 @@
 <script>
   import { onMount } from "svelte";
-  import ButtonSecondary from "./atoms/buttonSecondary.svelte";
-
   import { fade } from "svelte/transition";
 
+  export let visited = false;
+  let visible = true;
+
+  if (visited) {
+    visible = false;
+  }
+
+  console.log(visited, visible);
+
   let notLoaded = true;
-  export let showAcknowledgement = true;
 
   onMount(() => {
     notLoaded = false;
   });
 
   function closeAcknowledgement() {
-    showAcknowledgement = false;
+    visible = false;
   }
 </script>
 
-<a
-  on:click={closeAcknowledgement}
-  class:fade={!showAcknowledgement}
-  transition:fade
->
+<a on:click={closeAcknowledgement} class:fade={!visible} transition:fade>
   <h2 class="medium" class:notLoaded>
-    The NCM acknowledges all First Peoples of this land and celebrate their
-    enduring connections to Country, knowledge and stories. We pay our respects
-    to Elders and Ancestors who watch over us and guide Aboriginal and Torres
-    Strait Islander community.
+    The NCM acknowledges all First Peoples of this land and celebrate their enduring connections to Country, knowledge and stories. We pay our respects to Elders and Ancestors who watch over us and
+    guide Aboriginal and Torres Strait Islander community.
   </h2>
   <p class="small" class:notLoaded>Proceed</p>
 </a>
