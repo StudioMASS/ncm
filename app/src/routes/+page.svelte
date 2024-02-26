@@ -39,8 +39,6 @@
     };
   });
 
-  let acknowledge = true;
-
   export let data;
   // Get from Sanity
   const meta = {
@@ -74,9 +72,7 @@
 </svelte:head>
 
 <section>
-  {#if acknowledge}
-    <Acknowledgement bind:showAcknowledgement={acknowledge} />
-  {/if}
+  <Acknowledgement visited={data.visited} />
   <div bind:clientHeight={ncm}>
     <Header />
     <Intro {data} />
