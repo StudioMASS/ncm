@@ -9,8 +9,6 @@
     visible = false;
   }
 
-  console.log(visited, visible);
-
   let notLoaded = true;
 
   onMount(() => {
