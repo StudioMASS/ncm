@@ -12,6 +12,7 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"dependencies": {
+		"@mailchimp/mailchimp_marketing": "^3.0.80",
 		"@sanity/client": "^6.0.0",
 		"@sanity/image-url": "^1.0.2",
 		"embla-carousel-svelte": "^8.0.0-rc15",
