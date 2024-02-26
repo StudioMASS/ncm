@@ -4,9 +4,11 @@
 
   export let visited = false;
   let visible = true;
+  let display = true;
 
   if (visited) {
     visible = false;
+    display = false;
   }
 
   let notLoaded = true;
@@ -17,10 +19,13 @@
 
   function closeAcknowledgement() {
     visible = false;
+    setTimeout(() => {
+      display = false;
+    }, 300);
   }
 </script>
 
-<a on:click={closeAcknowledgement} class:fade={!visible} transition:fade>
+<a on:click={closeAcknowledgement} class:fade={!visible} transition:fade style:display={display ? "flex" : "none"}>
   <h2 class="medium" class:notLoaded>
     The NCM acknowledges all First Peoples of this land and celebrate their enduring connections to Country, knowledge and stories. We pay our respects to Elders and Ancestors who watch over us and
     guide Aboriginal and Torres Strait Islander community.
