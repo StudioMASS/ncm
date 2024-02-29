@@ -10,6 +10,7 @@
   import Location from "../components/blocks/location.svelte";
   import Nav from "../components/nav.svelte";
   import Acknowledgement from "../components/acknowledgement.svelte";
+  import Logo from "../components/blocks/logo.svelte";
 
   let scrollY, ncm, building, resources, signup;
   let ncmPerc, buildingPerc, resourcesPerc, signupPerc;
@@ -72,6 +73,7 @@
   <Acknowledgement visited={data.visited} />
   <div bind:clientHeight={ncm}>
     <Header />
+    <Logo />
     <Intro {data} />
   </div>
   <div bind:clientHeight={building}>
