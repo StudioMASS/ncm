@@ -19,7 +19,9 @@
 		"groq": "^3.8.1",
 		"mapbox-gl": "^3.0.0",
 		"postprocessing": "^6.33.3",
+		"remixicon": "^4.1.0",
 		"svelte-action-balancer": "^1.0.4",
+		"svelte-time": "^0.8.2",
 		"three": "^0.158.0"
 	},
 	"devDependencies": {

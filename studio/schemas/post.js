@@ -5,12 +5,12 @@ export default defineType({
   title: 'FAQs',
   type: 'document',
   fields: [
-    defineField({
+    {
       title: 'Introduction',
       name: 'intro',
       type: 'text',
-    }),
-    defineField({
+    },
+    {
       name: 'faqs',
       title: 'FAQs',
       type: 'array',
@@ -31,13 +31,13 @@ export default defineType({
           ],
         },
       ],
-    }),
-    defineField({
+    },
+    {
       name: 'listpara',
       title: 'Reading List Introduction',
       type: 'text',
-    }),
-    defineField({
+    },
+    {
       name: 'item',
       title: 'List Item',
       type: 'array',
@@ -80,7 +80,7 @@ export default defineType({
           ],
         },
       ],
-    }),
+    },
   ],
 
   preview: {

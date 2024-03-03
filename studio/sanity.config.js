@@ -21,11 +21,11 @@ export default defineConfig({
     deskTool({
       structure: (S) =>
         S.list()
-          .title('Content')
+          .title('Homepage')
           .items([
             // Singleton 'post' type
             S.listItem()
-              .title('Content')
+              .title('Homepage')
               .id('post')
               .child(S.document().schemaType('post').documentId('singleton-post')),
             // Other document types

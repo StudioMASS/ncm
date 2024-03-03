@@ -19,14 +19,23 @@ export const client = createClient({
 });
 
 export async function getPosts() {
-  return await client.fetch(
-    groq`*[_type == "post"] | order(_createdAt desc)`
-  );
+  return await client.fetch(groq`*[_type == "post"] | order(_createdAt desc)`);
 }
 
-export async function getPost(slug) {
+export async function getArticles() {
+  return await client.fetch(groq`*[_type == "blog"] | order(_createdAt desc)`);
+}
+
+export async function getArticle(slug) {
   return await client.fetch(
-    groq`*[_type == "post" && slug.current == $slug][0]`,
+    groq`*[_type == "blog" && slug.current == $slug]{
+      ...,
+      author->{
+        _id,
+        name,
+        // Include other fields from the author document as needed
+      }
+    }[0]`,
     {
       slug,
     }
