@@ -24,9 +24,7 @@
     aboveSections = aboveSections + ncm;
     buildingPerc = Math.round(((scrollY - aboveSections) / building) * 100) + 1;
     aboveSections = aboveSections + building;
-    resourcesPerc =
-      Math.round(((scrollY - aboveSections) / (resources - signup / 2)) * 100) +
-      1;
+    resourcesPerc = Math.round(((scrollY - aboveSections) / (resources - signup / 2)) * 100) + 1;
     aboveSections = aboveSections + (resources - signup / 2);
     signupPerc = Math.round(((scrollY - aboveSections) / (signup / 2)) * 100);
   };
