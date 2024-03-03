@@ -159,4 +159,9 @@
   a:hover {
     background: var(--black-05);
   }
+  @media only screen and (max-width: 767px) {
+    h1 {
+      font-size: 28px;
+    }
+  }
 </style>

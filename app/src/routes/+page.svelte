@@ -39,10 +39,9 @@
     };
   });
 
-  let acknowledge = true;
+  let acknowledge = false;
 
   export let data;
-  console.log(data);
 </script>
 
 <section>
