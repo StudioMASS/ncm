@@ -32,14 +32,13 @@ html {
   scroll-behavior: smooth;
 }
 
-::-moz-selection {
-  /* Code for Firefox */
+/* ::-moz-selection {
   background: var(--border);
 }
 
 ::selection {
-  background: var(--border);
-}
+  background: red;
+} */
 
 @font-face {
   font-family: sans;
