@@ -19,7 +19,36 @@ export const client = createClient({
 });
 
 export async function getPosts() {
-  return await client.fetch(groq`*[_type == "post"] | order(_createdAt desc)`);
+  return await client.fetch(groq`
+    *[_type == "post"]
+    | order(_createdAt desc) {
+      ...,
+      "featureArticle": feature->{
+        ...,
+        // You can specify fields from the 'blog' document you want to include, like:
+        title,
+        _createdAt,
+        // Add more fields as needed
+      },
+      faqs[],
+      listpara,
+      "items": item[]{
+        ...,
+        // Handling both object and reference within the same array
+        _type == 'reference' => {
+          // Dereference the 'blog' document for reference types
+          "ref": @->{
+            title,
+            slug,
+            image,
+          }
+        },
+        // No dereferencing needed for objects, but you can transform fields if necessary
+      },
+      acknowledgement,
+      social[]
+    }
+  `);
 }
 
 export async function getArticles() {

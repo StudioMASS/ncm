@@ -11,6 +11,13 @@ export default defineType({
       type: 'text',
     },
     {
+      title: 'Feature Article',
+      name: 'feature',
+      type: 'reference',
+      weak: true,
+      to: [{type: 'blog'}],
+    },
+    {
       name: 'faqs',
       title: 'FAQs',
       type: 'array',
@@ -44,6 +51,7 @@ export default defineType({
       of: [
         {
           type: 'object',
+          title: 'Link',
           fields: [
             {
               name: 'contentType',
@@ -78,6 +86,12 @@ export default defineType({
               type: 'url',
             },
           ],
+        },
+        {
+          type: 'reference',
+          weak: true,
+          title: 'Blog Post',
+          to: [{type: 'blog'}],
         },
       ],
     },

@@ -6,9 +6,10 @@
   export let author;
   export let img;
   export let url;
+  export let internal = false;
 </script>
 
-<a href={url ? url : "#"} target="_blank">
+<a href={url ? url : "#"} target={internal ? null : "_blank"}>
   <img src={img ? urlFor(img) : null} alt="thumbnail" />
   <div class="content">
     <p class="small">{title}</p>
@@ -54,7 +55,7 @@
     position: relative;
   }
   .tag {
-    font-size: 9px;
+    font-size: 10px;
     padding: 2px 4px;
     background: var(--black-05);
     display: flex;

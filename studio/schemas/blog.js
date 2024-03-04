@@ -20,6 +20,11 @@ export default defineType({
       },
     },
     {
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+    },
+    {
       title: 'Publish Date',
       name: 'date',
       type: 'date',
@@ -33,6 +38,7 @@ export default defineType({
       title: 'Author',
       name: 'author',
       type: 'reference',
+      weak: true,
       to: [{type: 'authors'}],
     },
     {

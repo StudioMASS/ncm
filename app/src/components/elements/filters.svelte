@@ -9,6 +9,7 @@
     (item) => item.contentType === "podcast"
   ).length;
   let videoCount = data.filter((item) => item.contentType === "video").length;
+  let featureCount = data.filter((item) => !item.contentType).length;
 
   export let selectedValue = "all";
 </script>
@@ -19,6 +20,13 @@
     class:active={selectedValue == "all"}
     href="#resources"
     on:click={() => (selectedValue = "all")}>All<span>{allCount}</span></a
+  >
+  <a
+    class="small"
+    class:active={selectedValue == "feature"}
+    href="#resources"
+    on:click={() => (selectedValue = "feature")}
+    >Feature<span>{featureCount}</span></a
   >
   <a
     class="small"
@@ -55,7 +63,7 @@
     margin-left: 4px;
   }
   a {
-    opacity: var(--opacity);
+    opacity: 0.5;
     transition: opacity 0.2 ease;
   }
   a:hover {
