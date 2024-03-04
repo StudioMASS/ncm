@@ -41,6 +41,7 @@
   });
 
   export let data;
+  // console.log(data);
   // Get from Sanity
   const meta = {
     title: "National Communication Museum | Opening Winter 2024",
@@ -78,7 +79,7 @@
     visited={data.visited}
   />
   <div bind:clientHeight={ncm}>
-    <Header />
+    <Header article={data.posts[0].featureArticle} />
     <Logo />
     <Intro {data} />
   </div>

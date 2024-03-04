@@ -4,6 +4,9 @@
   import Orb from "../atoms/orb.svelte";
   import Chip from "../atoms/chip.svelte";
 
+  export let article;
+  // console.log(article);
+
   let enabled = false;
   let sectionElement;
   let frameWidth, frameHeight, tipWidth, tipHeight;
@@ -41,11 +44,13 @@
   bind:clientHeight={frameHeight}
 >
   <!-- <a class="article" href="/welcome-to-ncm">Hello</a> -->
-  <Chip
-    text="Welcome to the NCM"
-    url="/welcome-to-ncm"
-    icon="ri-arrow-right-up-line"
-  />
+  {#if article}
+    <Chip
+      text={article.title}
+      url={"/" + article.slug.current}
+      icon="ri-arrow-right-up-line"
+    />
+  {/if}
   <h1 class="large">National Communication Museum</h1>
   <h1 class="large">Opening Winter 2024</h1>
   <Orb bind:enabled />

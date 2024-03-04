@@ -30,7 +30,7 @@
   }
 
   export let socials;
-  console.log(socials);
+  // console.log(socials);
 </script>
 
 <section id="signup">
