@@ -1,6 +1,7 @@
 import { error } from "@sveltejs/kit";
 
 import { getArticle } from "$lib/utils/sanity";
+import { getPosts } from "$lib/utils/sanity";
 
 export const ssr = false;
 

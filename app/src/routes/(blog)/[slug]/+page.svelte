@@ -2,6 +2,7 @@
   import { onMount, onDestroy } from "svelte";
   import Time from "svelte-time";
   export let data;
+  console.log(data);
 
   import Rich from "../../../components/atoms/rich.svelte";
   import Chip from "../../../components/atoms/chip.svelte";

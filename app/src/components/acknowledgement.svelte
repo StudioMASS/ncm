@@ -3,6 +3,7 @@
   import { fade } from "svelte/transition";
 
   export let visited = false;
+  export let text = "placeholder";
   let visible = true;
   let display = true;
 
@@ -25,10 +26,14 @@
   }
 </script>
 
-<a on:click={closeAcknowledgement} class:fade={!visible} transition:fade style:display={display ? "flex" : "none"}>
+<a
+  on:click={closeAcknowledgement}
+  class:fade={!visible}
+  transition:fade
+  style:display={display ? "flex" : "none"}
+>
   <h2 class="medium" class:notLoaded>
-    The NCM acknowledges all First Peoples of this land and celebrate their enduring connections to Country, knowledge and stories. We pay our respects to Elders and Ancestors who watch over us and
-    guide Aboriginal and Torres Strait Islander community.
+    {text}
   </h2>
   <p class="small" class:notLoaded>Proceed</p>
 </a>

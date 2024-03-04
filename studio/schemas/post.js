@@ -81,6 +81,33 @@ export default defineType({
         },
       ],
     },
+    {
+      title: 'Acknowledgement of Country',
+      name: 'acknowledgement',
+      type: 'text',
+    },
+    {
+      name: 'social',
+      title: 'Social Media Links',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'platform',
+              title: 'Platform',
+              type: 'string',
+            },
+            {
+              name: 'link',
+              title: 'Link',
+              type: 'url',
+            },
+          ],
+        },
+      ],
+    },
   ],
 
   preview: {
