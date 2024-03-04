@@ -3,6 +3,7 @@
   import Gradient from "../atoms/gradient.svelte";
   import Orb from "../atoms/orb.svelte";
   import Chip from "../atoms/chip.svelte";
+  import ArticleChip from "../atoms/articleChip.svelte";
 
   export let article;
   // console.log(article);
@@ -45,10 +46,11 @@
 >
   <!-- <a class="article" href="/welcome-to-ncm">Hello</a> -->
   {#if article}
-    <Chip
+    <ArticleChip
       text={article.title}
       url={"/" + article.slug.current}
       icon="ri-arrow-right-up-line"
+      img={article.image}
     />
   {/if}
   <h1 class="large">National Communication Museum</h1>

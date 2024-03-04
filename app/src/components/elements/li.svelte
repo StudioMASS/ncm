@@ -55,7 +55,7 @@
     position: relative;
   }
   .tag {
-    font-size: 9px;
+    font-size: 10px;
     padding: 2px 4px;
     background: var(--black-05);
     display: flex;

@@ -9,6 +9,9 @@
 
   const lng = 145.036471;
   const lat = -37.822357;
+  const zoom = 17.75;
+  const pitch = 60;
+  const bearing = 30;
   const initialZoom = 16.75;
   const initialPitch = 0;
   const initalBearing = 9;
@@ -20,45 +23,46 @@
       style: "mapbox://styles/bbeagley00/clcjzdubo005414kdrx4x6yj2",
       cooperativeGestures: "true",
       center: [lng, lat],
-      zoom: initialZoom,
-      pitch: initialPitch,
+      zoom: zoom,
+      pitch: pitch,
+      bearing: bearing,
       interactive: false,
     });
 
-    observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            map.flyTo({
-              center: [lng, lat],
-              zoom: 17.75,
-              pitch: 60,
-              bearing: 30,
-              duration: transitionDuration,
-              easing: (t) => t * (2 - t), // Easing function for a smooth effect
-            });
-          } else {
-            map.flyTo({
-              center: [lng, lat],
-              zoom: initialZoom,
-              pitch: initialPitch,
-              bearing: initalBearing,
-              duration: transitionDuration,
-              easing: (t) => t * (2 - t), // Easing function for a smooth effect
-            });
-          }
-        });
-      },
-      { threshold: viewThreshold }
-    );
+    // observer = new IntersectionObserver(
+    //   (entries) => {
+    //     entries.forEach((entry) => {
+    //       if (entry.isIntersecting) {
+    //         map.flyTo({
+    //           center: [lng, lat],
+    //           zoom: 17.75,
+    //           pitch: 60,
+    //           bearing: 30,
+    //           duration: transitionDuration,
+    //           easing: (t) => t * (2 - t),
+    //         });
+    //       } else {
+    //         map.flyTo({
+    //           center: [lng, lat],
+    //           zoom: initialZoom,
+    //           pitch: initialPitch,
+    //           bearing: initalBearing,
+    //           duration: transitionDuration,
+    //           easing: (t) => t * (2 - t),
+    //         });
+    //       }
+    //     });
+    //   },
+    //   { threshold: viewThreshold }
+    // );
 
-    observer.observe(container);
+    // observer.observe(container);
   }
 
-  onDestroy(() => {
-    if (map) map.remove();
-    if (observer) observer.disconnect();
-  });
+  // onDestroy(() => {
+  //   if (map) map.remove();
+  //   if (observer) observer.disconnect();
+  // });
 </script>
 
 <div use:initMap />
