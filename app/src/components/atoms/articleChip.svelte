@@ -50,6 +50,7 @@
   }
   .content {
     min-width: 0px;
+    width: 100%;
   }
   .top {
     display: flex;
@@ -86,5 +87,12 @@
   }
   i {
     margin-right: 2px;
+  }
+
+  @media only screen and (max-width: 767px) {
+    a {
+      width: 100%;
+      position: static;
+    }
   }
 </style>

@@ -8,9 +8,10 @@
   import Intro from "../components/blocks/intro.svelte";
   import List from "../components/blocks/list.svelte";
   import Location from "../components/blocks/location.svelte";
-  import Nav from "../components/nav.svelte";
+  import Nav from "../components/blocks/navigation/nav.svelte";
   import Acknowledgement from "../components/acknowledgement.svelte";
   import Logo from "../components/blocks/logo.svelte";
+  import NavigationMobile from "../components/blocks/navigation/navigationMobile.svelte";
 
   let scrollY, ncm, building, resources, signup;
   let ncmPerc, buildingPerc, resourcesPerc, signupPerc;
@@ -24,9 +25,7 @@
     aboveSections = aboveSections + ncm;
     buildingPerc = Math.round(((scrollY - aboveSections) / building) * 100) + 1;
     aboveSections = aboveSections + building;
-    resourcesPerc =
-      Math.round(((scrollY - aboveSections) / (resources - signup / 2)) * 100) +
-      1;
+    resourcesPerc = Math.round(((scrollY - aboveSections) / (resources - signup / 2)) * 100) + 1;
     aboveSections = aboveSections + (resources - signup / 2);
     signupPerc = Math.round(((scrollY - aboveSections) / (signup / 2)) * 100);
   };
@@ -40,13 +39,25 @@
     };
   });
 
+  let screenWidth = window.innerWidth;
+  function handleResize() {
+    screenWidth = window.innerWidth;
+  }
+  onMount(() => {
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup function
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
+
   export let data;
   // console.log(data);
   // Get from Sanity
   const meta = {
     title: "National Communication Museum | Opening Winter 2024",
-    description:
-      "The National Communication Museum connects audiences to artefacts, stories and technologies of communication history.",
+    description: "The National Communication Museum connects audiences to artefacts, stories and technologies of communication history.",
     image: "",
     url: "",
     canonical: "",
@@ -74,10 +85,7 @@
 </svelte:head>
 
 <section>
-  <Acknowledgement
-    text={data.posts[0].acknowledgement}
-    visited={data.visited}
-  />
+  <Acknowledgement text={data.posts[0].acknowledgement} visited={data.visited} />
   <div bind:clientHeight={ncm}>
     <Header article={data.posts[0].featureArticle} />
     <Logo />
@@ -94,7 +102,11 @@
   <div bind:clientHeight={signup}>
     <Footer socials={data.posts[0].social} />
   </div>
-  <Nav {ncmPerc} {buildingPerc} {resourcesPerc} {signupPerc} {notLoaded} />
+  {#if screenWidth > 1000}
+    <Nav {ncmPerc} {buildingPerc} {resourcesPerc} {signupPerc} {notLoaded} />
+  {:else}
+    <NavigationMobile />
+  {/if}
 </section>
 
 <svelte:window bind:scrollY />

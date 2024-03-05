@@ -1,6 +1,6 @@
 <script>
   import { onMount, onDestroy } from "svelte";
-  import NavLink from "./atoms/navLink.svelte";
+  import NavLink from "../../atoms/navLink.svelte";
 
   export let ncmPerc;
   export let buildingPerc;
