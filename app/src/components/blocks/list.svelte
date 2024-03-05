@@ -9,40 +9,39 @@
   let filter = "all";
 </script>
 
-<section id="resources">
-  <div class="container">
-    <div class="lhs small">Further readings</div>
-    <div class="rhs">
-      <p class="small">
-        {data.posts[0].listpara}
-      </p>
-      <Filters data={data.posts[0].items} bind:selectedValue={filter} />
-      <div class="body">
-        {#each data.posts[0].items as item (item._key)}
-          {#if item.contentType == filter || filter == "all" || (filter == "feature" && !item.contentType)}
-            <div transition:slide>
-              {#if item._type == "reference"}
-                <Li
-                  title={item.ref.title}
-                  tag="Feature Article"
-                  author="National Communication Museum"
-                  img={item.ref.image}
-                  url={"/" + item.ref.slug.current}
-                  internal={true}
-                />
-              {:else}
-                <Li
-                  title={item.title}
-                  tag={item.contentType}
-                  author={item.author}
-                  img={item.image}
-                  url={item.link}
-                />
-              {/if}
-            </div>
-          {/if}
-        {/each}
-      </div>
+<section class="section">
+  <div class="divider" />
+  <p class="lhs small">Further readings</p>
+  <div class="rhs">
+    <p class="small paragraph">
+      {data.posts[0].listpara}
+    </p>
+    <Filters data={data.posts[0].items} bind:selectedValue={filter} />
+    <div class="body">
+      {#each data.posts[0].items as item (item._key)}
+        {#if item.contentType == filter || filter == "all" || (filter == "feature" && !item.contentType)}
+          <div transition:slide>
+            {#if item._type == "reference"}
+              <Li
+                title={item.ref.title}
+                tag="Feature"
+                author="NCM"
+                img={item.ref.image}
+                url={"/" + item.ref.slug.current}
+                internal={true}
+              />
+            {:else}
+              <Li
+                title={item.title}
+                tag={item.contentType}
+                author={item.author}
+                img={item.image}
+                url={item.link}
+              />
+            {/if}
+          </div>
+        {/if}
+      {/each}
     </div>
   </div>
 </section>
@@ -53,35 +52,35 @@
     position: relative;
     background: white;
   }
-  .container {
-    display: flex;
-    gap: var(--padding);
-    padding-top: var(--padding);
+  .divider {
+    grid-column: span 2;
     border-top: var(--border);
-    align-items: start;
-  }
-  .container div {
-    width: 100%;
+    max-width: 100%;
   }
   .lhs {
     position: sticky;
     top: var(--padding);
   }
-  p {
+  .rhs {
+    width: 100%;
+  }
+  .paragraph {
     margin-bottom: 76px;
   }
 
-  .body {
-    /* border-top: var(--border); */
-    /* margin-top: 16px; */
-  }
-
   @media only screen and (max-width: 767px) {
-    .container {
-      flex-direction: column;
-    }
     .lhs {
       position: static;
+    }
+    .divider {
+      grid-column: span 1;
+    }
+    .paragraph {
+      margin-bottom: 32px;
+      color: var(--black-50);
+    }
+    section {
+      padding-bottom: 100px;
     }
   }
 </style>
