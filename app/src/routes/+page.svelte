@@ -39,14 +39,14 @@
     };
   });
 
-  let screenWidth = window.innerWidth;
+  let screenWidth;
   function handleResize() {
     screenWidth = window.innerWidth;
   }
   onMount(() => {
+    screenWidth = window.innerWidth;
     window.addEventListener("resize", handleResize);
 
-    // Cleanup function
     return () => {
       window.removeEventListener("resize", handleResize);
     };
