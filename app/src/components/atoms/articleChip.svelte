@@ -12,9 +12,6 @@
   <div class="content">
     <div class="top">
       <p class="tag">Featured Article</p>
-      {#if icon}
-        <i class={icon} />
-      {/if}
     </div>
     <p class="title small">{text}</p>
   </div>
@@ -92,6 +89,9 @@
     a {
       width: calc(100% - calc(var(--padding) * 2));
       left: var(--padding);
+    }
+    img {
+      width: 52px;
     }
   }
 </style>
