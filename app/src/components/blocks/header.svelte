@@ -40,10 +40,15 @@
   bind:this={sectionElement}
   href="#intro"
   style="cursor: {enabled ? 'auto' : 'pointer'}"
+  class="section"
   on:mousemove={windowWidth > "767" ? handleMousemove : null}
   bind:clientWidth={frameWidth}
   bind:clientHeight={frameHeight}
 >
+  <div class="headings">
+    <h1 class="large">National Communication Museum</h1>
+    <h1 class="large">Opening Winter 2024</h1>
+  </div>
   <!-- <a class="article" href="/welcome-to-ncm">Hello</a> -->
   {#if article}
     <ArticleChip
@@ -53,8 +58,6 @@
       img={article.image}
     />
   {/if}
-  <h1 class="large">National Communication Museum</h1>
-  <h1 class="large">Opening Winter 2024</h1>
   <Orb bind:enabled />
   <p
     bind:clientWidth={tipWidth}
@@ -69,9 +72,6 @@
 <style>
   section {
     height: calc(100svh - var(--nav-height));
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
     padding: var(--padding);
     background-color: white;
     color: white;
@@ -80,6 +80,10 @@
     top: 0px;
     z-index: 0;
     overflow: hidden;
+    align-content: center;
+  }
+  .headings {
+    grid-column: var(--column-half);
   }
   section:hover p {
     opacity: 0.5;

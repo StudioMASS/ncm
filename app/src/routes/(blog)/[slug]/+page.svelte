@@ -50,7 +50,7 @@
 
 <Chip text="Return" url="/" icon="ri-arrow-go-back-line" />
 
-<section>
+<section class="section">
   <main>
     <h1 class="large">{data.title}</h1>
     <div class="metadetails small">
@@ -99,6 +99,8 @@
     width: 100%;
     max-width: 624px;
     color: var(--black-100);
+    grid-column-start: 2;
+    grid-column-end: 4;
   }
   .metadetails {
     display: flex;
