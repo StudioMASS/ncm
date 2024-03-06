@@ -75,7 +75,7 @@ export default defineType({
           },
         },
         {
-          title: 'Inline Image',
+          title: 'Image',
           name: 'inlineImage',
           type: 'object',
           fields: [
@@ -94,6 +94,23 @@ export default defineType({
             select: {
               title: 'caption',
               media: 'image',
+            },
+          },
+        },
+        {
+          title: 'Video',
+          name: 'video',
+          type: 'object',
+          fields: [
+            {
+              title: 'URL',
+              name: 'url',
+              type: 'url',
+            },
+          ],
+          preview: {
+            select: {
+              title: 'url',
             },
           },
         },
