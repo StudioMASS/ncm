@@ -1,5 +1,6 @@
 <script>
   import InlineImage from "./inlineImage.svelte";
+  import YoutubeEmbed from "./youtubeEmbed.svelte";
 
   export let content;
 
@@ -72,6 +73,8 @@
       </p>
     {:else if block._type === "inlineImage"}
       <InlineImage src={block.image} caption={block.caption} />
+    {:else if block._type === "video"}
+      <YoutubeEmbed url={block.url} />
     {/if}
   {/each}
 </div>
