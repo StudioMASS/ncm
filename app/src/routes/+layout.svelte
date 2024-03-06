@@ -23,13 +23,13 @@
   {#key data.path}
     {#if data.path !== "/"}
       <div
-        in:fly={{ y: 200, duration: 400, delay: 450 }}
-        out:fly={{ y: 200, duration: 400 }}
+        in:fly={{ y: 50, duration: 400, delay: 450, opacity: 0 }}
+        out:fly={{ y: 0, duration: 400, delay: 0, opacity: 0 }}
       >
         <slot />
       </div>
     {:else}
-      <div in:fade={{ duration: 400, delay: 300 }} out:fade={{ duration: 200 }}>
+      <div in:fade={{ duration: 400, delay: 400 }} out:fade={{ duration: 200 }}>
         <slot />
       </div>
     {/if}
