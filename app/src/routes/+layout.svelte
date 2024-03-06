@@ -1,4 +1,11 @@
 <script>
+  export let data;
+
+  $: console.log(data.path);
+
+  import { fade, fly, slide } from "svelte/transition";
+  import { page } from "$app/stores"; // Import $page store
+
   let grids = false;
 
   // Function to handle keydown event
@@ -13,7 +20,20 @@
 <svelte:window on:keydown={onKeyDown} />
 
 <main>
-  <slot />
+  {#key data.path}
+    {#if data.path !== "/"}
+      <div
+        in:fly={{ y: 200, duration: 400, delay: 450 }}
+        out:fly={{ y: 200, duration: 400 }}
+      >
+        <slot />
+      </div>
+    {:else}
+      <div in:fade={{ duration: 400, delay: 300 }} out:fade={{ duration: 200 }}>
+        <slot />
+      </div>
+    {/if}
+  {/key}
 </main>
 
 {#if grids}
@@ -32,13 +52,13 @@
     left: 0;
     z-index: 1000;
     pointer-events: none;
-    height: 100dvh;
+    height: 100vh;
     padding-top: 0px;
     padding-bottom: 0px;
   }
   .column {
     width: 100%;
-    height: 100dvh;
+    height: 100vh;
     background: aqua;
     opacity: 0.2;
   }

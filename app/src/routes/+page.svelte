@@ -25,7 +25,9 @@
     aboveSections = aboveSections + ncm;
     buildingPerc = Math.round(((scrollY - aboveSections) / building) * 100) + 1;
     aboveSections = aboveSections + building;
-    resourcesPerc = Math.round(((scrollY - aboveSections) / (resources - signup / 2)) * 100) + 1;
+    resourcesPerc =
+      Math.round(((scrollY - aboveSections) / (resources - signup / 2)) * 100) +
+      1;
     aboveSections = aboveSections + (resources - signup / 2);
     signupPerc = Math.round(((scrollY - aboveSections) / (signup / 2)) * 100);
   };
@@ -53,11 +55,12 @@
   });
 
   export let data;
-  // console.log(data);
+  console.log(data);
   // Get from Sanity
   const meta = {
     title: "National Communication Museum | Opening Winter 2024",
-    description: "The National Communication Museum connects audiences to artefacts, stories and technologies of communication history.",
+    description:
+      "The National Communication Museum connects audiences to artefacts, stories and technologies of communication history.",
     image: "",
     url: "",
     canonical: "",
@@ -85,7 +88,10 @@
 </svelte:head>
 
 <section>
-  <Acknowledgement text={data.posts[0].acknowledgement} visited={data.visited} />
+  <Acknowledgement
+    text={data.posts[0].acknowledgement}
+    visited={data.visited}
+  />
   <div bind:clientHeight={ncm}>
     <Header article={data.posts[0].featureArticle} />
     <Logo />
