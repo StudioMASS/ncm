@@ -11,8 +11,10 @@
       node.marks.forEach((mark) => {
         if (mark === "strong") text = `<strong>${text}</strong>`;
         if (mark === "em") text = `<em>${text}</em>`;
-        // Assuming mark.type for links, adjust according to your data structure
-        if (mark._type === "link") text = `<a href="${mark.href}">${text}</a>`;
+        if (mark._type === "link") {
+          // Handle rendering of links properly
+          text = `<a href="${mark.href}" target="_blank" rel="noopener noreferrer">${text}</a>`;
+        }
       });
       return text;
     }
@@ -68,9 +70,19 @@
         {/each}
       </ul>
     {:else if block._type === "block"}
-      <p>
-        {@html block.children.map((child) => renderText(child)).join("")}
-      </p>
+      {#if block.style === "h3"}
+        <h3 class="medium">
+          {@html block.children.map((child) => renderText(child)).join("")}
+        </h3>
+      {:else if block.style === "blockquote"}
+        <blockquote class="medium">
+          {@html block.children.map((child) => renderText(child)).join("")}
+        </blockquote>
+      {:else}
+        <p>
+          {@html block.children.map((child) => renderText(child)).join("")}
+        </p>
+      {/if}
     {:else if block._type === "inlineImage"}
       <InlineImage src={block.image} caption={block.caption} />
     {:else if block._type === "video"}
@@ -95,6 +107,16 @@
   figcaption {
     margin-top: 0.5em;
     font-style: italic;
+  }
+  h3 {
+    margin-top: 80px;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  blockquote {
+    margin: 80px 0px 80px 0px;
+    padding-left: 32px;
+    border-left: 4px solid var(--black-05);
   }
   p {
     font-size: 1em;
