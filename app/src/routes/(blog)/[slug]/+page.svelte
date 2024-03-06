@@ -166,5 +166,15 @@
     h1 {
       font-size: 28px;
     }
+    section {
+      padding: 152px var(--padding) 0px;
+    }
+    main {
+      grid-column-start: 1;
+      grid-column-end: 1;
+    }
+    .metadetails {
+      margin-bottom: 32px;
+    }
   }
 </style>
