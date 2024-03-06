@@ -7,7 +7,7 @@
   import { urlFor } from "../../lib/utils/image";
 </script>
 
-<a class="wrapper" href={url}>
+<a href={url}>
   <img src={img ? urlFor(img) : null} alt="thumbnail" />
   <div class="content">
     <div class="top">
@@ -22,27 +22,26 @@
 
 <style>
   a {
-    width: 31.25%;
     background: white;
-    position: absolute;
-    bottom: var(--padding);
-    right: var(--padding);
     z-index: 100;
     color: var(--black-60);
     transition: background 0.2s ease, color 0.2s ease;
-  }
-  .wrapper {
+    grid-column: var(--column-half);
+    width: 100%;
+    position: absolute;
+    bottom: var(--padding);
+    right: var(--padding);
+    width: calc(50% - calc(var(--padding) * 1.5));
     display: flex;
-    padding: 8px;
-    padding-right: 16px;
-    gap: 12px;
+    padding: 12px;
+    gap: var(--padding);
     align-items: center;
     border-radius: 4px;
     box-sizing: border-box;
   }
   img {
     aspect-ratio: 1;
-    width: 64px;
+    width: 72px;
     background: var(--black-10);
     flex-shrink: 0;
     object-fit: cover;
@@ -91,8 +90,8 @@
 
   @media only screen and (max-width: 767px) {
     a {
-      width: 100%;
-      position: static;
+      width: calc(100% - calc(var(--padding) * 2));
+      left: var(--padding);
     }
   }
 </style>

@@ -54,6 +54,8 @@
     background: var(--black-05);
     position: relative;
     overflow: hidden;
+    width: 100%;
+    grid-column: var(--column-full);
   }
   .outer {
     position: absolute;

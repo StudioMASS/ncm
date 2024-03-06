@@ -20,6 +20,8 @@
   <div class="section grid">
     <div class="column" />
     <div class="column" />
+    <div class="column" />
+    <div class="column" />
   </div>
 {/if}
 
@@ -36,7 +38,7 @@
   }
   .column {
     width: 100%;
-    height: 100%;
+    height: 100dvh;
     background: aqua;
     opacity: 0.2;
   }

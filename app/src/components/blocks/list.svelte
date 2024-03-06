@@ -9,7 +9,7 @@
   let filter = "all";
 </script>
 
-<section class="section">
+<section class="section" id="resources">
   <div class="divider" />
   <p class="lhs small">Further readings</p>
   <div class="rhs">
@@ -52,17 +52,14 @@
     position: relative;
     background: white;
   }
-  .divider {
-    grid-column: span 2;
-    border-top: var(--border);
-    max-width: 100%;
-  }
   .lhs {
     position: sticky;
     top: var(--padding);
+    grid-column: var(--column-half);
   }
   .rhs {
     width: 100%;
+    grid-column: var(--column-half);
   }
   .paragraph {
     margin-bottom: 76px;
