@@ -5,20 +5,21 @@
   export let content;
 
   // Helper function to render text with styles and links
-  function renderText(node) {
-    if (node.marks) {
-      let text = node.text;
-      node.marks.forEach((mark) => {
-        if (mark === "strong") text = `<strong>${text}</strong>`;
-        if (mark === "em") text = `<em>${text}</em>`;
-        if (mark._type === "link") {
-          // Handle rendering of links properly
-          text = `<a href="${mark.href}" target="_blank" rel="noopener noreferrer">${text}</a>`;
-        }
-      });
-      return text;
+  function renderText(node, markDefs) {
+    if (node.marks && node.marks.length > 0) {
+      const linkDef = findLink(markDefs, node.marks[0]);
+      if (linkDef) {
+        return `<a target="_blank" class="link" href="${
+          linkDef.href ? linkDef.href : "#"
+        }">${node.text}</a>`;
+      }
     }
     return node.text;
+  }
+
+  // Function to find link definition
+  function findLink(markDefs, key) {
+    return markDefs.find((def) => def._key === key);
   }
 
   // Process content to group list items and handle styling
@@ -65,22 +66,30 @@
       <ul>
         {#each block.items as item}
           <li>
-            {@html item.children.map((child) => renderText(child)).join("")}
+            {@html item.children
+              .map((child) => renderText(child, block.markDefs))
+              .join("")}
           </li>
         {/each}
       </ul>
     {:else if block._type === "block"}
       {#if block.style === "h3"}
         <h3 class="medium">
-          {@html block.children.map((child) => renderText(child)).join("")}
+          {@html block.children
+            .map((child) => renderText(child, block.markDefs))
+            .join("")}
         </h3>
       {:else if block.style === "blockquote"}
         <blockquote class="medium">
-          {@html block.children.map((child) => renderText(child)).join("")}
+          {@html block.children
+            .map((child) => renderText(child, block.markDefs))
+            .join("")}
         </blockquote>
       {:else}
         <p>
-          {@html block.children.map((child) => renderText(child)).join("")}
+          {@html block.children
+            .map((child) => renderText(child, block.markDefs))
+            .join("")}
         </p>
       {/if}
     {:else if block._type === "inlineImage"}
@@ -120,5 +129,16 @@
   }
   p {
     font-size: 1em;
+  }
+
+  :global(.link) {
+    /* color: red; */
+    text-decoration: underline;
+    text-decoration-color: var(--black-20);
+    text-underline-position: under;
+    transition: text-decoration-color 0.2s ease;
+  }
+  :global(.link:hover) {
+    text-decoration-color: var(--black-100);
   }
 </style>
