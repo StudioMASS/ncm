@@ -4,7 +4,7 @@
   export let icon = null;
 </script>
 
-<a class="tiny" href={url}>
+<a class="tiny" href={url} data-sveltekit-noscroll>
   {#if icon}
     <i class={icon} />
   {/if}

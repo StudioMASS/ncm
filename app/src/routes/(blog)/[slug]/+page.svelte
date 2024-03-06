@@ -19,9 +19,12 @@
     progressWidth = `${scrollProgress}%`;
   }
 
+  let notLoaded = true;
+
   onMount(() => {
     window.addEventListener("scroll", updateProgress);
     updateProgress(); // Initialize progress on mount
+    notLoaded = false;
   });
 
   onDestroy(() => {
@@ -48,7 +51,9 @@
   <div class="progress" style="width: {progressWidth}" />
 </div>
 
-<Chip text="Return" url="/" icon="ri-arrow-go-back-line" />
+<div class:notLoaded class="return">
+  <Chip text="Return" url="/" icon="ri-arrow-go-back-line" />
+</div>
 
 <section class="section">
   <main>
@@ -101,6 +106,13 @@
     color: var(--black-100);
     grid-column-start: 2;
     grid-column-end: 4;
+  }
+  .return {
+    transition: opacity 0.2s ease;
+    transition-delay: 800ms;
+  }
+  .notLoaded {
+    opacity: 0;
   }
   .metadetails {
     display: flex;
