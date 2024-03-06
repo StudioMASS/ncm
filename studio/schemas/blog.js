@@ -48,7 +48,11 @@ export default defineType({
       of: [
         {
           type: 'block',
-          styles: [{title: 'Normal', value: 'normal'}],
+          styles: [
+            {title: 'Heading', value: 'h3'},
+            {title: 'Normal', value: 'normal'},
+            {title: 'Quote', value: 'blockquote'},
+          ],
           marks: {
             decorators: [
               {title: 'Bold', value: 'strong'},

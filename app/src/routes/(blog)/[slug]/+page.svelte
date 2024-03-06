@@ -1,5 +1,6 @@
 <script>
   import { onMount, onDestroy } from "svelte";
+  import { PortableText } from "@portabletext/svelte";
   import Time from "svelte-time";
   export let data;
   console.log(data);
@@ -62,7 +63,10 @@
       {data.author.name} on <Time timestamp={data.date} format="DD MMMM" /> • {data.time}
       min Read
     </div>
-    <Rich content={data.content} />
+    <!-- <Rich content={data.content} /> -->
+    <div class="rich">
+      <PortableText value={data.content} />
+    </div>
     <ul class="tiny">
       <li>
         <a href="#" on:click|preventDefault={copyLinkToClipboard}
@@ -131,7 +135,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 3px;
+    height: 4px;
     /* background: white; */
     z-index: 10;
   }

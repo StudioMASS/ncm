@@ -61,6 +61,10 @@ html {
   }
 }
 
+.rich p {
+  margin-bottom: 1em;
+}
+
 /* ::-moz-selection {
   background: var(--border);
 }
