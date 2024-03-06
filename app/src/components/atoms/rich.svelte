@@ -71,7 +71,7 @@
         {@html block.children.map((child) => renderText(child)).join("")}
       </p>
     {:else if block._type === "inlineImage"}
-      <InlineImage src={block.image} caption={"Hello world"} />
+      <InlineImage src={block.image} caption={block.caption} />
     {/if}
   {/each}
 </div>

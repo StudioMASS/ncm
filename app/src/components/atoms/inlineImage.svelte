@@ -6,7 +6,9 @@
 
 <figure>
   <img src={src ? urlFor(src) : null} alt={caption ? caption : null} />
-  <figcaption class="tiny">{caption}</figcaption>
+  {#if caption}
+    <figcaption class="tiny">{caption}</figcaption>
+  {/if}
 </figure>
 
 <style>
