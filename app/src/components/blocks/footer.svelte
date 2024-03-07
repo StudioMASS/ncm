@@ -95,14 +95,26 @@
           </form>
         {/if}
       </div>
-      <div class="bottom small">
-        Follow us on:
-        <ul class="social">
-          {#each socials as link}
-            <li><a target="_blank" href={link.link}>{link.platform}</a></li>
-          {/each}
-        </ul>
-      </div>
+      {#if socials}
+        <div class="bottom small">
+          Follow us on:
+          <ul class="social">
+            {#each socials as link, i}
+              <li>
+                <a target="_blank" href={link.link}>
+                  {#if i === socials.length - 1}
+                    {link.platform}
+                  {:else if i === socials.length - 2}
+                    {link.platform} {"&"}
+                  {:else}
+                    {link.platform}{","}
+                  {/if}
+                </a>
+              </li>
+            {/each}
+          </ul>
+        </div>
+      {/if}
     </div>
   </div>
 </section>
@@ -215,7 +227,7 @@
   .social li {
     display: inline;
   }
-  .social li:after {
+  /* .social li:after {
     content: ", ";
   }
   .social li:last-child:before {
@@ -223,5 +235,5 @@
   }
   .social li:last-child:after {
     content: none;
-  }
+  } */
 </style>

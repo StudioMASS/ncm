@@ -72,9 +72,11 @@
       <li>
         <span>About</span>
         <p>
-          The National Communication Museum do id pariatur occaecat nisi amet
-          pariatur magna exercitation ut duis in. Exercitation id do laborum
-          nulla eu eiusmod anim do qui ullamco tempor sunt duis anim.
+          The National Communication Museum connects audiences to artefacts,
+          stories and technologies of communication history. With items dating
+          from the 1800s to the current day, we focus on demonstrating the
+          powerful impact of technology in connecting societies; and inspiring
+          futures.
         </p>
       </li>
       <li>
