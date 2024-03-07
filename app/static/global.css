@@ -27,8 +27,10 @@
 }
 
 html {
-  line-height: 1.4;
-  font-family: sans, system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  font-family: ncm-sans, serif, system-ui, -apple-system, sans-serif;
+  font-feature-settings: "ss06" 1;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--black-100);
@@ -70,8 +72,15 @@ html {
 } */
 
 @font-face {
-  font-family: sans;
-  src: url(ABCDiatype-Regular.ttf);
+  font-family: ncm-sans;
+  src: url(./fonts/Roobert-Regular.woff2);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: ncm-sans;
+  src: url(./fonts/Roobert-SemiBold.woff2);
+  font-weight: 600;
 }
 
 h1,
@@ -82,7 +91,7 @@ h5,
 h6,
 p {
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: inherit;
   margin: 0px;
 }
 
@@ -98,7 +107,7 @@ body {
 
 .large {
   font-size: 30px;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.0175em;
   line-height: 1.2;
 }
 
