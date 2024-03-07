@@ -6,7 +6,6 @@
   import ArticleChip from "../atoms/articleChip.svelte";
 
   export let article;
-  // console.log(article);
 
   let enabled = false;
   let sectionElement;

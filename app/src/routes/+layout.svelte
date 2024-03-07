@@ -1,8 +1,6 @@
 <script>
   export let data;
 
-  $: console.log(data.path);
-
   import { fade, fly, slide } from "svelte/transition";
   import { page } from "$app/stores"; // Import $page store
 

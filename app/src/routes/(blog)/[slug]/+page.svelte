@@ -2,7 +2,6 @@
   import { onMount, onDestroy } from "svelte";
   import Time from "svelte-time";
   export let data;
-  console.log(data);
 
   import Rich from "../../../components/atoms/rich.svelte";
   import Chip from "../../../components/atoms/chip.svelte";
@@ -42,7 +41,7 @@
         buttonText = "Copy Article Link";
       }, 1000);
     } catch (err) {
-      console.error("Failed to copy: ", err);
+      // console.error("Failed to copy: ", err);
     }
   }
 </script>

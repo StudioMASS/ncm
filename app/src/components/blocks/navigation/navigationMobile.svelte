@@ -23,7 +23,6 @@
 
   // functions
   function barChanges(barIndex) {
-    console.log("Function fires");
     pageIndex = barIndex;
     switch (barIndex) {
       case 0:
@@ -43,7 +42,6 @@
   // function pageChanges(pageIndex) {
   //   barIndex = pageIndex;
   //   emblaApi.scrollTo(barIndex);
-  //   console.log("Page has scrolled to", pageIndex);
   // }
 </script>
 

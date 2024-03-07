@@ -55,7 +55,6 @@
   });
 
   export let data;
-  console.log(data);
   // Get from Sanity
   const meta = {
     title: "National Communication Museum | Opening Winter 2024",

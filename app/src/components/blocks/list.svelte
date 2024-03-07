@@ -4,7 +4,6 @@
   import Li from "../elements/li.svelte";
 
   export let data;
-  console.log(data.posts[0].items);
 
   let filter = "all";
 </script>
