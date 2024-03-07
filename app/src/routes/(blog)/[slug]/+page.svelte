@@ -80,11 +80,10 @@
       <li>
         <span>Acknowledgement</span>
         <p>
-          NCM is situated on the lands of the Wurundjeri Woi-wurrung people. We
-          pay respects to them, especially their Elders and storytellers, as
-          well as all First Peoples, nationwide. NCM acknowledges that
-          communication technologies have a long history here, far longer than
-          European occupation.
+          The NCM acknowledges all First Peoples of this land and celebrate
+          their enduring connections to Country, knowledge and stories. We pay
+          our respects to Elders and Ancestors who watch over us and guide
+          Aboriginal and Torres Strait Islander community.
         </p>
       </li>
     </ul>
