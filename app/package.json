@@ -15,6 +15,7 @@
 		"@mailchimp/mailchimp_marketing": "^3.0.80",
 		"@sanity/client": "^6.0.0",
 		"@sanity/image-url": "^1.0.2",
+		"@vercel/analytics": "^1.2.2",
 		"embla-carousel-svelte": "^8.0.0-rc15",
 		"groq": "^3.8.1",
 		"mapbox-gl": "^3.0.0",

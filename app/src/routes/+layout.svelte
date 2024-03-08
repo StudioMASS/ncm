@@ -1,6 +1,11 @@
 <script>
   export let data;
 
+  import { dev } from "$app/environment";
+  import { inject } from "@vercel/analytics";
+
+  inject({ mode: dev ? "development" : "production" });
+
   import { fade, fly, slide } from "svelte/transition";
   import { page } from "$app/stores"; // Import $page store
 
