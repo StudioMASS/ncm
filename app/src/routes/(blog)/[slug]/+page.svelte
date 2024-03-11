@@ -1,6 +1,5 @@
 <script>
   import { onMount, onDestroy } from "svelte";
-  import Time from "svelte-time";
   export let data;
 
   import Rich from "../../../components/atoms/rich.svelte";
@@ -11,9 +10,7 @@
   // Function to calculate and update scroll progress
   function updateProgress() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const scrollHeight =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const scrollProgress = (scrollTop / scrollHeight) * 100;
     progressWidth = `${scrollProgress}%`;
   }
@@ -44,6 +41,17 @@
       // console.error("Failed to copy: ", err);
     }
   }
+
+  //format date
+  function formatDate(input) {
+    const date = new Date(input);
+    const day = date.getDate().toString().padStart(2, "0");
+    const month = date.toLocaleString("en-US", { month: "long" });
+    return `${day} ${month}`;
+  }
+
+  let formattedDate = formatDate(data.date);
+  console.log(formattedDate);
 </script>
 
 <div class="track">
@@ -58,33 +66,26 @@
   <main>
     <h1 class="large">{data.title}</h1>
     <div class="metadetails small">
-      {data.author.name} on <Time timestamp={data.date} format="DD MMMM" /> • {data.time}
+      {data.author.name} on {formattedDate} • {data.time}
       min Read
     </div>
     <Rich content={data.content} />
     <ul class="tiny">
       <li>
-        <a href="#" on:click|preventDefault={copyLinkToClipboard}
-          ><i class="ri-link" />{buttonText}</a
-        >
+        <a href="#" on:click|preventDefault={copyLinkToClipboard}><i class="ri-link" />{buttonText}</a>
       </li>
       <li>
         <span>About</span>
         <p>
-          The National Communication Museum connects audiences to artefacts,
-          stories and technologies of communication history. With items dating
-          from the 1800s to the current day, we focus on demonstrating the
-          powerful impact of technology in connecting societies; and inspiring
-          futures.
+          The National Communication Museum connects audiences to artefacts, stories and technologies of communication history. With items dating from the 1800s to the current day, we focus on
+          demonstrating the powerful impact of technology in connecting societies; and inspiring futures.
         </p>
       </li>
       <li>
         <span>Acknowledgement</span>
         <p>
-          The NCM acknowledges all First Peoples of this land and celebrate
-          their enduring connections to Country, knowledge and stories. We pay
-          our respects to Elders and Ancestors who watch over us and guide
-          Aboriginal and Torres Strait Islander community.
+          The NCM acknowledges all First Peoples of this land and celebrate their enduring connections to Country, knowledge and stories. We pay our respects to Elders and Ancestors who watch over us
+          and guide Aboriginal and Torres Strait Islander community.
         </p>
       </li>
     </ul>
