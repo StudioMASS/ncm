@@ -187,7 +187,7 @@
       grid-column-end: 1;
     }
     .metadetails {
-      margin-bottom: 32px;
+      margin-bottom: 0px;
     }
   }
 </style>

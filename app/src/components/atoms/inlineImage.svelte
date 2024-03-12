@@ -28,4 +28,10 @@
     margin-top: 4px;
     color: var(--black-60);
   }
+
+  @media only screen and (max-width: 767px) {
+    figure {
+      margin: 40px 0px;
+    }
+  }
 </style>

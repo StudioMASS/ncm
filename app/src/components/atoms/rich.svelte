@@ -9,9 +9,7 @@
     if (node.marks && node.marks.length > 0) {
       const linkDef = findLink(markDefs, node.marks[0]);
       if (linkDef) {
-        return `<a target="_blank" class="link" href="${
-          linkDef.href ? linkDef.href : "#"
-        }">${node.text}</a>`;
+        return `<a target="_blank" class="link" href="${linkDef.href ? linkDef.href : "#"}">${node.text}</a>`;
       }
     }
     return node.text;
@@ -66,30 +64,22 @@
       <ul>
         {#each block.items as item}
           <li>
-            {@html item.children
-              .map((child) => renderText(child, block.markDefs))
-              .join("")}
+            {@html item.children.map((child) => renderText(child, block.markDefs)).join("")}
           </li>
         {/each}
       </ul>
     {:else if block._type === "block"}
       {#if block.style === "h3"}
         <h3 class="medium">
-          {@html block.children
-            .map((child) => renderText(child, block.markDefs))
-            .join("")}
+          {@html block.children.map((child) => renderText(child, block.markDefs)).join("")}
         </h3>
       {:else if block.style === "blockquote"}
         <blockquote class="medium">
-          {@html block.children
-            .map((child) => renderText(child, block.markDefs))
-            .join("")}
+          {@html block.children.map((child) => renderText(child, block.markDefs)).join("")}
         </blockquote>
       {:else}
         <p>
-          {@html block.children
-            .map((child) => renderText(child, block.markDefs))
-            .join("")}
+          {@html block.children.map((child) => renderText(child, block.markDefs)).join("")}
         </p>
       {/if}
     {:else if block._type === "inlineImage"}
@@ -140,5 +130,18 @@
   }
   :global(.link:hover) {
     text-decoration-color: var(--black-100);
+  }
+
+  @media only screen and (max-width: 767px) {
+    blockquote {
+      margin: 40px 0px;
+      padding-left: 16px;
+      border-left: 3px solid var(--black-05);
+    }
+    h3 {
+      margin-top: 52px;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
   }
 </style>
