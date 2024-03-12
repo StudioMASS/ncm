@@ -4,14 +4,7 @@
 
 {#if url}
   <div class="video-container">
-    <iframe
-      width="560"
-      height="315"
-      src={url}
-      frameborder="0"
-      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-    />
+    <iframe width="560" height="315" src={url} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
   </div>
 {/if}
 
@@ -28,5 +21,11 @@
     left: 0;
     width: 100%;
     height: 100%;
+  }
+
+  @media only screen and (max-width: 767px) {
+    .video-container {
+      margin: 52px 0px;
+    }
   }
 </style>
