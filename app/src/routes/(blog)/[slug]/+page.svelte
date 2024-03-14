@@ -1,7 +1,7 @@
 <script>
   import { onMount, onDestroy } from "svelte";
   export let data;
-  console.log(data.home[0]);
+  // console.log(data.home[0]);
 
   import Rich from "../../../components/atoms/rich.svelte";
   import Chip from "../../../components/atoms/chip.svelte";
