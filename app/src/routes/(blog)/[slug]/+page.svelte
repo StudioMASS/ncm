@@ -1,6 +1,7 @@
 <script>
   import { onMount, onDestroy } from "svelte";
   export let data;
+  console.log(data.home[0]);
 
   import Rich from "../../../components/atoms/rich.svelte";
   import Chip from "../../../components/atoms/chip.svelte";
@@ -10,7 +11,9 @@
   // Function to calculate and update scroll progress
   function updateProgress() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrollHeight =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
     const scrollProgress = (scrollTop / scrollHeight) * 100;
     progressWidth = `${scrollProgress}%`;
   }
@@ -51,7 +54,7 @@
   }
 
   let formattedDate = formatDate(data.date);
-  console.log(formattedDate);
+  // console.log(formattedDate);
 </script>
 
 <div class="track">
@@ -72,21 +75,19 @@
     <Rich content={data.content} />
     <ul class="tiny">
       <li>
-        <a href="#" on:click|preventDefault={copyLinkToClipboard}><i class="ri-link" />{buttonText}</a>
+        <a href="#" on:click|preventDefault={copyLinkToClipboard}
+          ><i class="ri-link" />{buttonText}</a
+        >
       </li>
       <li>
         <span>About</span>
         <p>
-          The National Communication Museum connects audiences to artefacts, stories and technologies of communication history. With items dating from the 1800s to the current day, we focus on
-          demonstrating the powerful impact of technology in connecting societies; and inspiring futures.
+          {data.home[0].intro}
         </p>
       </li>
       <li>
         <span>Acknowledgement</span>
-        <p>
-          The NCM acknowledges all First Peoples of this land and celebrate their enduring connections to Country, knowledge and stories. We pay our respects to Elders and Ancestors who watch over us
-          and guide Aboriginal and Torres Strait Islander community.
-        </p>
+        <p>{data.home[0].acknowledgement}</p>
       </li>
     </ul>
   </main>

@@ -10,7 +10,7 @@
 
   $: {
     width = Math.min(Math.max(parseInt(percentage), 0), 101);
-    console.log(percentage);
+    // console.log(percentage);
   }
 
   let textWidth;
