@@ -21,7 +21,7 @@
 
   // Get from Sanity
   const meta = {
-    title: "National Communication Museum | Opening Winter 2024",
+    title: "National Communication Museum | Opening Spring 2024",
     description:
       "The National Communication Museum connects audiences to artefacts, stories and technologies of communication history.",
     image: "./images/facebook-og.png",
