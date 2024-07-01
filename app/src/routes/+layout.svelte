@@ -48,6 +48,22 @@
   <meta name="twitter:description" content={meta.description} />
   <meta name="twitter:image" content={meta.image} />
   <meta name="twitter:site" content="@{meta.twitter}" />
+
+  <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-P1NB63RDH0"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-P1NB63RDH0");
+  </script>
 </svelte:head>
 
 <svelte:window on:keydown={onKeyDown} />
