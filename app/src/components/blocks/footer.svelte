@@ -1,5 +1,6 @@
 <script>
   let email = "";
+  let select = "null";
   let success = false;
   let error = false;
   let submitting = false;
@@ -38,19 +39,9 @@
     <div class="rhs">
       <div class="top">
         {#if success}
-          <p class="medium">
-            Thanks for subscribing to our weekly newsletter. Expect to recieve
-            project updates, insights into our collection, and invites to events
-            & initiatives.
-          </p>
+          <p class="medium">Thanks for subscribing to our weekly newsletter. Expect to recieve project updates, insights into our collection, and invites to events & initiatives.</p>
           <p class="tiny feedback success">
-            <svg
-              aria-hidden="true"
-              width="14"
-              height="14"
-              viewBox="0 0 14 14"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M7.00016 13.6668C3.31826 13.6668 0.333496 10.682 0.333496 7.00016C0.333496 3.31826 3.31826 0.333496 7.00016 0.333496C10.682 0.333496 13.6668 3.31826 13.6668 7.00016C13.6668 10.682 10.682 13.6668 7.00016 13.6668ZM6.33523 9.66683L11.0493 4.95278L10.1065 4.00998L6.33523 7.78123L4.44964 5.89556L3.50682 6.83843L6.33523 9.66683Z"
               />
@@ -58,19 +49,10 @@
             Subscription to newsletter successful
           </p>
         {:else}
-          <p class="medium">
-            Join our weekly newsletter to get project updates, insights into our
-            collection, and invites to events & initiatives.
-          </p>
+          <p class="medium">Join our weekly newsletter to get project updates, insights into our collection, and invites to events & initiatives.</p>
           {#if error}
             <p class="tiny feedback error">
-              <svg
-                aria-hidden="true"
-                width="14"
-                height="14"
-                viewBox="0 0 14 14"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+              <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M6.99992 13.6668C3.31802 13.6668 0.333252 10.682 0.333252 7.00016C0.333252 3.31826 3.31802 0.333496 6.99992 0.333496C10.6818 0.333496 13.6666 3.31826 13.6666 7.00016C13.6666 10.682 10.6818 13.6668 6.99992 13.6668ZM6.33325 9.00016V10.3335H7.66658V9.00016H6.33325ZM6.33325 3.66683V7.66683H7.66658V3.66683H6.33325Z"
                 />
@@ -80,17 +62,17 @@
           {/if}
           <form on:submit|preventDefault={handleSubmit}>
             <label for="email" class="sr-only">Your Email Address</label>
-            <input
-              placeholder="Your Email Address"
-              id="email"
-              name="email"
-              type="text"
-              class="medium"
-              bind:value={email}
-            />
-            <button type="submit" class="tiny" disabled={submitting}>
-              Subscribe
-            </button>
+            <input placeholder="Your Email Address" id="email" name="email" type="text" class="medium" bind:value={email} />
+            <div class="select-wrapper">
+              <select class="medium" class:deactive={select == "null"} name="subscription" id="cars" bind:value={select}>
+                <option value="null">Subscribe to</option>
+                <option value="all">All Communications</option>
+                <option value="whats-on">What's On</option>
+                <option value="kids-famailies">Kids & Families</option>
+              </select>
+              <i class="ri-arrow-down-s-line" />
+            </div>
+            <button type="submit" class="tiny" disabled={submitting}> Subscribe </button>
           </form>
         {/if}
       </div>
@@ -172,6 +154,41 @@
     -webkit-text-fill-color: white;
   }
   input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 50px var(--black-100) inset;
+    -webkit-text-fill-color: white;
+  }
+
+  select {
+    -webkit-appearance: none;
+    border: none;
+    background: none;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 16px 0;
+    color: white;
+    width: 100%;
+    outline-offset: 2px;
+  }
+
+  .select-wrapper {
+    margin-top: var(--padding);
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .select-wrapper i {
+    position: absolute;
+    right: 1rem;
+  }
+  select.deactive {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  select:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 50px var(--black-100) inset;
+    -webkit-text-fill-color: white;
+  }
+  select:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0 50px var(--black-100) inset;
     -webkit-text-fill-color: white;
   }
