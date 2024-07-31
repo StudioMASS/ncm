@@ -1,10 +1,12 @@
 <script>
   import { onMount, onDestroy } from "svelte";
   export let data;
-  // console.log(data.home[0]);
+  console.log(data);
 
   import Rich from "../../../components/atoms/rich.svelte";
   import Chip from "../../../components/atoms/chip.svelte";
+  import { urlFor } from "../../../lib/utils/image";
+  import { getFileURL } from "../../../lib/utils/sanity";
 
   let progressWidth = "0%";
 
@@ -63,7 +65,16 @@
   <Chip text="Return" url="/" icon="ri-arrow-go-back-line" />
 </div>
 
-<section class="section">
+{#if data.type == "featured"}
+  <div class="header">
+    <img class="fill" src={urlFor(data.image)} />
+    {#if data.video}
+      <video src={getFileURL(data.video.asset._ref)} class="fill" autoplay muted loop />
+    {/if}
+  </div>
+{/if}
+
+<section class="section" class:featured={data.type == "featured"}>
   <main>
     <h1 class="large">{data.title}</h1>
     {#if data.author}
@@ -92,12 +103,29 @@
 </section>
 
 <style>
+  .header {
+    width: 100%;
+    height: 82.5vh;
+    overflow: hidden;
+    position: relative;
+  }
+  .fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
   section {
     padding: 232px var(--padding);
     box-sizing: border-box;
     width: 100%;
     min-height: 100vh;
     position: relative;
+  }
+  section.featured {
+    padding-top: 116px;
   }
   main {
     margin: 0px auto;

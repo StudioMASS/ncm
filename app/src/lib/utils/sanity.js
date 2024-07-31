@@ -2,10 +2,7 @@ import { createClient } from "@sanity/client";
 
 import groq from "groq";
 
-import {
-  PUBLIC_SANITY_DATASET,
-  PUBLIC_SANITY_PROJECT_ID,
-} from "$env/static/public";
+import { PUBLIC_SANITY_DATASET, PUBLIC_SANITY_PROJECT_ID } from "$env/static/public";
 
 if (!PUBLIC_SANITY_PROJECT_ID || !PUBLIC_SANITY_DATASET) {
   throw new Error("Did you forget to run sanity init --env?");
@@ -69,4 +66,9 @@ export async function getArticle(slug) {
       slug,
     }
   );
+}
+
+export function getFileURL(ref) {
+  let [_file, id, extension] = ref.split("-");
+  return `https://cdn.sanity.io/files/${PUBLIC_SANITY_PROJECT_ID}/${PUBLIC_SANITY_DATASET}/${id}.${extension}`;
 }
