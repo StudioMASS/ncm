@@ -4,24 +4,18 @@
 
   let map;
   let mapContainer;
-  let observer;
-  let viewThreshold = 0.75; // Variable to control the percentage of in-view trigger
-
+  let animationFrameId;
   const lng = 145.036471;
   const lat = -37.822357;
   const zoom = 17.75;
   const pitch = 60;
-  const bearing = 30;
-  const initialZoom = 16.75;
-  const initialPitch = 0;
-  const initalBearing = 9;
-  const transitionDuration = 800; // Duration of the transition in milliseconds
+  let bearing = 0; // Start bearing at 0
 
   function initMap(container) {
     map = new mapboxgl.Map({
       container: container,
       style: "mapbox://styles/bbeagley00/clcjzdubo005414kdrx4x6yj2",
-      cooperativeGestures: "true",
+      cooperativeGestures: true,
       center: [lng, lat],
       zoom: zoom,
       pitch: pitch,
@@ -29,43 +23,27 @@
       interactive: false,
     });
 
-    // observer = new IntersectionObserver(
-    //   (entries) => {
-    //     entries.forEach((entry) => {
-    //       if (entry.isIntersecting) {
-    //         map.flyTo({
-    //           center: [lng, lat],
-    //           zoom: 17.75,
-    //           pitch: 60,
-    //           bearing: 30,
-    //           duration: transitionDuration,
-    //           easing: (t) => t * (2 - t),
-    //         });
-    //       } else {
-    //         map.flyTo({
-    //           center: [lng, lat],
-    //           zoom: initialZoom,
-    //           pitch: initialPitch,
-    //           bearing: initalBearing,
-    //           duration: transitionDuration,
-    //           easing: (t) => t * (2 - t),
-    //         });
-    //       }
-    //     });
-    //   },
-    //   { threshold: viewThreshold }
-    // );
-
-    // observer.observe(container);
+    // Start the rotation animation
+    rotateMap();
   }
 
-  // onDestroy(() => {
-  //   if (map) map.remove();
-  //   if (observer) observer.disconnect();
-  // });
+  function rotateMap() {
+    bearing += 0.025; // Adjust the rotation speed here
+    map.setBearing(bearing);
+    animationFrameId = requestAnimationFrame(rotateMap);
+  }
+
+  onDestroy(() => {
+    if (map) map.remove();
+    if (animationFrameId) cancelAnimationFrame(animationFrameId);
+  });
+
+  onMount(() => {
+    initMap(mapContainer);
+  });
 </script>
 
-<div use:initMap />
+<div bind:this={mapContainer} />
 
 <style>
   div {
