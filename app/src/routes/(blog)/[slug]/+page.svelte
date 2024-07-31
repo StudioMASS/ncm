@@ -11,9 +11,7 @@
   // Function to calculate and update scroll progress
   function updateProgress() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const scrollHeight =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const scrollProgress = (scrollTop / scrollHeight) * 100;
     progressWidth = `${scrollProgress}%`;
   }
@@ -68,16 +66,16 @@
 <section class="section">
   <main>
     <h1 class="large">{data.title}</h1>
-    <div class="metadetails small">
-      {data.author.name} on {formattedDate} • {data.time}
-      min Read
-    </div>
+    {#if data.author}
+      <div class="metadetails small">
+        {data.author.name} on {formattedDate} • {data.time}
+        min Read
+      </div>
+    {/if}
     <Rich content={data.content} />
     <ul class="tiny">
       <li>
-        <a href="#" on:click|preventDefault={copyLinkToClipboard}
-          ><i class="ri-link" />{buttonText}</a
-        >
+        <a href="#" on:click|preventDefault={copyLinkToClipboard}><i class="ri-link" />{buttonText}</a>
       </li>
       <li>
         <span>About</span>

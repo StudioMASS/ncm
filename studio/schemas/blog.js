@@ -25,6 +25,28 @@ export default defineType({
       type: 'image',
     },
     {
+      name: 'video',
+      type: 'file',
+      title: 'Video',
+      options: {
+        accept: '.mp4, .mov',
+      },
+    },
+    {
+      name: 'type',
+      title: 'Blog Type',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Default', value: 'default'},
+          {title: 'Featured', value: 'featured'},
+        ],
+        layout: 'dropdown',
+      },
+      validation: (Rule) => Rule.required(),
+      initialValue: 'default',
+    },
+    {
       title: 'Publish Date',
       name: 'date',
       type: 'date',

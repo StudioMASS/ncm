@@ -1,6 +1,5 @@
 import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
-import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
 
 // Define the actions for singleton documents
@@ -34,7 +33,7 @@ export default defineConfig({
             ),
           ]),
     }),
-    visionTool(),
+    // visionTool(),
   ],
   schema: {
     types: schemaTypes,
