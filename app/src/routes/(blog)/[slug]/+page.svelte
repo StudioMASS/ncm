@@ -1,10 +1,12 @@
 <script>
   import { onMount, onDestroy } from "svelte";
   export let data;
-  // console.log(data.home[0]);
+  console.log(data);
 
   import Rich from "../../../components/atoms/rich.svelte";
   import Chip from "../../../components/atoms/chip.svelte";
+  import { urlFor } from "../../../lib/utils/image";
+  import { getFileURL } from "../../../lib/utils/sanity";
 
   let progressWidth = "0%";
 
@@ -30,7 +32,7 @@
     window.removeEventListener("scroll", updateProgress);
   });
 
-  let buttonText = "Copy Article Link"; // Initial button text
+  let buttonText = "Copy Page Link"; // Initial button text
 
   async function copyLinkToClipboard() {
     try {
@@ -38,7 +40,7 @@
       buttonText = "Copied!";
 
       setTimeout(() => {
-        buttonText = "Copy Article Link";
+        buttonText = "Copy Page Link";
       }, 1000);
     } catch (err) {
       // console.error("Failed to copy: ", err);
@@ -65,13 +67,31 @@
   <Chip text="Return" url="/" icon="ri-arrow-go-back-line" />
 </div>
 
-<section class="section">
+{#if data.type == "featured"}
+  <div class="image">
+    {#if data.image}
+      <img class="fill" src={urlFor(data.image)} />
+    {/if}
+    {#if data.video}
+      <video
+        class="fill"
+        src={getFileURL(data.video.asset._ref)}
+        autoplay
+        muted
+        loop
+      />
+    {/if}
+  </div>
+{/if}
+<section class="section" class:featured={data.type == "featured"}>
   <main>
     <h1 class="large">{data.title}</h1>
-    <div class="metadetails small">
-      {data.author.name} on {formattedDate} • {data.time}
-      min Read
-    </div>
+    {#if data.author}
+      <div class="metadetails small">
+        {data.author.name} on {formattedDate} • {data.time}
+        min Read
+      </div>
+    {/if}
     <Rich content={data.content} />
     <ul class="tiny">
       <li>
@@ -94,12 +114,33 @@
 </section>
 
 <style>
+  .image {
+    width: 100%;
+    height: 80vh;
+    background: #f5f5f5;
+    position: relative;
+    overflow: hidden;
+  }
+  .fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
   section {
     padding: 232px var(--padding);
     box-sizing: border-box;
     width: 100%;
     min-height: 100vh;
     position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  section.featured {
+    /* padding: 0px 0px 232px 0px; */
+    padding-top: 100px;
   }
   main {
     margin: 0px auto;

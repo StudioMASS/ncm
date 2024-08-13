@@ -70,3 +70,8 @@ export async function getArticle(slug) {
     }
   );
 }
+
+export function getFileURL(ref) {
+  let [_file, id, extension] = ref.split("-");
+  return `https://cdn.sanity.io/files/${PUBLIC_SANITY_PROJECT_ID}/${PUBLIC_SANITY_DATASET}/${id}.${extension}`;
+}

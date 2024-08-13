@@ -1,5 +1,6 @@
 <script>
   let email = "";
+  let select = "null";
   let success = false;
   let error = false;
   let submitting = false;
@@ -86,8 +87,25 @@
               name="email"
               type="text"
               class="medium"
+              required
               bind:value={email}
             />
+            <div class="input-wrapper">
+              <select
+                class="medium"
+                name="cars"
+                id="cars"
+                bind:value={select}
+                required
+                class:placeholder={select == "null"}
+              >
+                <option value="null">Subscribe to*</option>
+                <option value="all">All communications</option>
+                <option value="whats-on">What's On</option>
+                <option value="kids">Kids & Families</option>
+              </select>
+              <i class="ri-arrow-down-s-line" />
+            </div>
             <button type="submit" class="tiny" disabled={submitting}>
               Subscribe
             </button>
@@ -174,6 +192,47 @@
   input:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0 50px var(--black-100) inset;
     -webkit-text-fill-color: white;
+  }
+
+  select {
+    -webkit-appearance: none;
+    border: none;
+    background: none;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 16px 0;
+    color: white;
+    width: 100%;
+    outline-offset: 2px;
+  }
+
+  select.placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  select::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  select:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 50px var(--black-100) inset;
+    -webkit-text-fill-color: white;
+  }
+  select:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 50px var(--black-100) inset;
+    -webkit-text-fill-color: white;
+  }
+
+  .input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: var(--padding);
+  }
+
+  .input-wrapper i {
+    position: absolute;
+    right: 1rem;
+    font-size: 1.2em;
   }
 
   button {

@@ -46,7 +46,7 @@
 >
   <div class="headings">
     <h1 class="large">National Communication Museum</h1>
-    <h1 class="large">Opening Spring 2024</h1>
+    <h1 class="large">Opening 21 September</h1>
   </div>
   <!-- <a class="article" href="/welcome-to-ncm">Hello</a> -->
   {#if article}

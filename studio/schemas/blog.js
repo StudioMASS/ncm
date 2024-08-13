@@ -20,9 +20,31 @@ export default defineType({
       },
     },
     {
+      name: 'type',
+      title: 'Type',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Default Blog', value: 'default'},
+          {title: 'Featured', value: 'featured'},
+        ],
+        layout: 'dropdown',
+      },
+      validation: (Rule) => Rule.required(),
+      initialValue: 'default',
+    },
+    {
       name: 'image',
       title: 'Image',
       type: 'image',
+    },
+    {
+      name: 'video',
+      type: 'file',
+      title: 'Video',
+      options: {
+        accept: '.mp4, .mov',
+      },
     },
     {
       title: 'Publish Date',
